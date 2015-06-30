@@ -1,4 +1,4 @@
-var host = 'http://299b3207.ngrok.io';
+var host = 'http://130.211.186.174';
 var EVENT_BUTTON = {
     szfw_zuixintongzhi : {
         name : 'NEWS',

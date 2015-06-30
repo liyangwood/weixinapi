@@ -275,7 +275,7 @@ var F = {
                 'chooseCard',
                 'openCard'
             ],
-            url: opts.url || 'http://299b3207.ngrok.io/jsdemo'
+            url: opts.url || 'http://130.211.186.174/jsdemo'
         }, function(err, rs){
             if(err) throw err;
 
