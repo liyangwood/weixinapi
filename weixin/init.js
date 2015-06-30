@@ -3,6 +3,7 @@ var WechatAPI = require('wechat-api');
 var config = require('./config');
 
 var api = global.weixinApi;
+var unionCityApi = global.unionCityApi;
 
 var MENU_BUTTON = config.MENU_BUTTON;
 
@@ -51,9 +52,25 @@ function init(){
     global.weixinApi = api;
 }
 
+function initUnionCityApi(){
+    unionCityApi = new WechatAPI(config.UNIONCITY_WEIXIN_CONFIG.appID, config.UNIONCITY_WEIXIN_CONFIG.appsecret);
+
+    unionCityApi.createMenu(config.UNION_MENU_BUTTON, function(err, rs){
+        if(err) throw err;
+
+        console.log('UNION MENU BUTTON is update.');
+    });
+
+    global.unionCityApi = unionCityApi;
+}
+
 
 if(!api){
     init();
 }
+if(!unionCityApi){
+    initUnionCityApi();
+}
 
 exports.weixinApi = api;
+exports.unionCityApi = unionCityApi;

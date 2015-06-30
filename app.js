@@ -49,6 +49,25 @@ app.use('/weixinapi', wechat({
     apiFn.doMessage(message, req, res);
 
 }));
+
+//union city
+app.use('/unioncityapi', wechat({
+    token: weixinConfig.UNIONCITY_WEIXIN_CONFIG.token,
+    appid: weixinConfig.UNIONCITY_WEIXIN_CONFIG.appID,
+    encodingAESKey: weixinConfig.UNIONCITY_WEIXIN_CONFIG.encodingAESKey
+}, function (req, res, next) {
+    if(req.query.echostr){
+        res.send(req.query.echostr);
+        return;
+    }
+
+    // 微信输入信息都在req.weixin上
+    var message = req.weixin;
+    console.log(message);
+    apiFn.doMessageForUnionCity(message, req, res);
+
+}));
+
 app.use('/', routes);
 app.use('/wxapi', weixinapi);
 

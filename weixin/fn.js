@@ -2,9 +2,9 @@
 
 var config = require('./config');
 var api = global.weixinApi;
+var unionCityApi = global.unionCityApi;
 
 var F = {
-
 
 
     getMenu : function(callback, errorFn){
@@ -139,6 +139,91 @@ var F = {
         res.reply(JSON.stringify(msg));
     },
 
+    doMessageForUnionCity : function(msg, req, res){
+        var type = msg.MsgType;
+        if('event' === type){
+            if('CLICK' === msg.Event){
+                var key = msg.EventKey;
+                if(key === 'union_news'){
+                    res.reply([
+                        {
+                            title: 'Union city news',
+                            //description: 'Fireworks are banned in Fremont',
+                            picurl: 'http://www.ci.union-city.ca.us/Home/ShowImage?id=772&t=635345471671870000',
+                            url: 'http://www.ci.union-city.ca.us/about-us/news'
+                        }
+                    ]);
+                    return;
+                }
+                else if(key === 'union_city_contact'){
+                    res.reply('City Hall Address : City of Union City 34009 Alvarado-Niles Road Union City, California 94587\nMain Phone Number : Telephone (510) 471-3232 Fax (510) 475-7318\nHours : Monday through Thursdays, 8:00 A.M. to 6:00 P.M. Fridays: 8:00 A.M. to 5:00 P.M. City Hall is closed on alternate Fridays.');
+                    return;
+                }
+
+                else if(key === 'union_biz_city_profile'){
+                    res.reply([
+                        {
+                            title : 'City Snapshot',
+                            picurl : 'http://38.106.5.171/home/showimage?id=282',
+                            url : 'http://www.ci.union-city.ca.us/departments/economic-community-development/city-snapshot'
+                        }
+                    ]);
+                    return;
+                }
+                else if(key === 'union_biz_contact'){
+                    res.reply('Gloria Ortega, Economic Development Manager 3900 Alvarado-Niles Road Union City , CA 94587 Phone: 510-675-5396 Fax: 510-475-7318 Email: economicdevelopment@unioncity.org');
+
+                    return;
+                }
+
+                else if(key === 'union_more_explore'){
+                    res.reply([
+                        {
+                            title : 'Plan a day trip to Union City',
+                            picurl : 'http://img1.sunset.timeinc.net/sites/default/files/styles/300x300/public/image/2010/03/alameda-creek-trail-0310-m.jpg?itok=3TucwZRz',
+                            url : 'http://www.sunset.com/travel/california/union-city-trails'
+                        }
+                    ]);
+
+                    return;
+                }
+
+
+
+                if(config.UNION_EVENT_BUTTON[key]){
+                    res.reply('你点击了“'+config.UNION_EVENT_BUTTON[key].name+'”的Button');
+                    return;
+                }
+            }
+            res.reply('');
+            return;
+        }
+        else if('text' === type){
+            var str = msg.Content.toLowerCase();
+            if(str === 'contact'){
+                res.reply('City Hall Address : City of Union City 34009 Alvarado-Niles Road Union City, California 94587\nMain Phone Number : Telephone (510) 471-3232 Fax (510) 475-7318\nHours : Monday through Thursdays, 8:00 A.M. to 6:00 P.M. Fridays: 8:00 A.M. to 5:00 P.M. City Hall is closed on alternate Fridays.');
+                return;
+            }
+            else if(str === 'demographics' || str === 'demo'){
+                res.reply([
+                    {
+                        title : 'City Snapshot',
+                        picurl : 'http://38.106.5.171/home/showimage?id=282',
+                        url : 'http://www.ci.union-city.ca.us/departments/economic-community-development/city-snapshot'
+                    }
+                ]);
+
+                return;
+            }
+
+
+            res.reply('Thanks for your message.');
+            return;
+        }
+
+        res.reply(JSON.stringify(msg));
+    },
+
     getJsTicket : function(callback){
         api.getTicket(function(err, rs){
             if(err) throw err;
@@ -148,7 +233,10 @@ var F = {
     },
 
     getJsConfig : function(opts, callback){
-        api.getJsConfig({
+        opts = opts || {};
+        var apiObj = opts.type==='union city'?unionCityApi:api;
+
+        apiObj.getJsConfig({
             debug: false,
             jsApiList: [
                 'getNetworkType',
