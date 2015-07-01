@@ -33,20 +33,37 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.use(express.query());
-app.use('/weixinapi', wechat({
-    token: weixinConfig.WEIXIN_CONFIG.token,
-    appid: weixinConfig.WEIXIN_CONFIG.appID,
-    encodingAESKey: weixinConfig.WEIXIN_CONFIG.encodingAESKey
+//app.use('/weixinapi', wechat({
+//    token: weixinConfig.WEIXIN_CONFIG.token,
+//    appid: weixinConfig.WEIXIN_CONFIG.appID,
+//    encodingAESKey: weixinConfig.WEIXIN_CONFIG.encodingAESKey
+//}, function (req, res, next) {
+//    if(req.query.echostr){
+//        res.send(req.query.echostr);
+//        return;
+//    }
+//
+//    // 微信输入信息都在req.weixin上
+//    var message = req.weixin;
+//    console.log(message);
+//    apiFn.doMessage(message, req, res);
+//
+//}));
+
+app.use('/ymapi', wechat({
+    token: weixinConfig.YM_WEIXIN_CONFIG.token,
+    appid: weixinConfig.YM_WEIXIN_CONFIG.appID,
+    encodingAESKey: weixinConfig.YM_WEIXIN_CONFIG.encodingAESKey
 }, function (req, res, next) {
-    if(req.query.echostr){
-        res.send(req.query.echostr);
-        return;
-    }
+    //if(req.query.echostr){
+    //    res.send(req.query.echostr);
+    //    return;
+    //}
 
     // 微信输入信息都在req.weixin上
     var message = req.weixin;
     console.log(message);
-    apiFn.doMessage(message, req, res);
+    apiFn.doMessageForYM(message, req, res);
 
 }));
 
@@ -56,10 +73,10 @@ app.use('/unioncityapi', wechat({
     appid: weixinConfig.UNIONCITY_WEIXIN_CONFIG.appID,
     encodingAESKey: weixinConfig.UNIONCITY_WEIXIN_CONFIG.encodingAESKey
 }, function (req, res, next) {
-    if(req.query.echostr){
-        res.send(req.query.echostr);
-        return;
-    }
+    //if(req.query.echostr){
+    //    res.send(req.query.echostr);
+    //    return;
+    //}
 
     // 微信输入信息都在req.weixin上
     var message = req.weixin;

@@ -1,7 +1,7 @@
 
 
 var config = require('./config');
-var api = global.weixinApi;
+var api = global.ymApi;
 var unionCityApi = global.unionCityApi;
 
 var F = {
@@ -194,6 +194,104 @@ var F = {
                     res.reply('你点击了“'+config.UNION_EVENT_BUTTON[key].name+'”的Button');
                     return;
                 }
+            }
+            res.reply('');
+            return;
+        }
+        else if('text' === type){
+            var str = msg.Content.toLowerCase();
+            if(str === 'contact'){
+                res.reply('City Hall Address : City of Union City 34009 Alvarado-Niles Road Union City, California 94587\nMain Phone Number : Telephone (510) 471-3232 Fax (510) 475-7318\nHours : Monday through Thursdays, 8:00 A.M. to 6:00 P.M. Fridays: 8:00 A.M. to 5:00 P.M. City Hall is closed on alternate Fridays.');
+                return;
+            }
+            else if(str === 'demographics' || str === 'demo'){
+                res.reply([
+                    {
+                        title : 'City Snapshot',
+                        picurl : 'http://38.106.5.171/home/showimage?id=282',
+                        url : 'http://www.ci.union-city.ca.us/departments/economic-community-development/city-snapshot'
+                    }
+                ]);
+
+                return;
+            }
+
+
+            res.reply('Thanks for your message.');
+            return;
+        }
+
+        res.reply(JSON.stringify(msg));
+    },
+
+    doMessageForYM : function(msg, req, res){
+        var type = msg.MsgType;
+        if('event' === type){
+            if('CLICK' === msg.Event){
+                var key = msg.EventKey;
+
+                if(key === 'ym_updates'){
+                    res.reply([
+                        {
+                            title : 'News Releases',
+                            picurl : 'http://www.nps.gov/pwr/yose/planyourvisit/images/AD7541AD-A7F8-4591-CFC890EDA4018CE8.jpg',
+                            url : 'http://www.nps.gov/yose/learn/news/newsreleases.htm'
+                        }
+                    ]);
+
+                    return;
+                }
+                else if(key === 'ym_camping'){
+                    res.reply([
+                        {
+                            title : 'Campground Reservations',
+                            picurl : '',
+                            url : 'http://www.nps.gov/yose/planyourvisit/camping.htm'
+                        }
+                    ]);
+
+                    return
+                }
+
+                else if(key === 'ym_status'){
+                    res.reply('Call 209/372-0200 (press 1 then 1) for the most up-to-date conditions (the information below only reflects planned or long-term closures).');
+                    return;
+                }
+
+                else if(key === 'ym_about'){
+                    res.reply([
+                        {
+                            title : 'Yosemite',
+                            picurl : 'http://www.nps.gov/pwr/yose/planyourvisit/images/AD729C7C-B99D-00B4-7B5CE1EDD36771D1.jpg',
+                            url : 'http://www.nps.gov/yose/index.htm'
+                        }
+                    ]);
+
+                    return;
+                }
+                else if(key === 'ym_hours'){
+                    res.reply('Yosemite National Park is open 24 hours per day, 365 days per year, and no reservations are required to visit. However, the Hetch Hetchy Entrance Station is open only during daylight hours (approximately) and some roads are closed due to snow from around November through May or June. (Check road conditions and Hetch Hetchy hours.)');
+                    return;
+                }
+
+
+
+                if(config.YM_EVENT_BUTTON[key]){
+                    res.reply('你点击了“'+config.YM_EVENT_BUTTON[key].name+'”的Button');
+                    return;
+                }
+            }
+            else if('subscribe' === msg.Event){
+                res.reply([
+                    {
+                        title : 'Welcome to Yosemite National Park!',
+                        description : 'Not just a great valley, but a shrine to human foresight, the strength of granite, the power of glaciers, the persistence of life, and the tranquility of the High Sierra. You can find all information you need here',
+                        picurl : 'http://www.nps.gov/pwr/yose/planyourvisit/images/AD729C7C-B99D-00B4-7B5CE1EDD36771D1.jpg',
+                        url : 'http://www.nps.gov/yose/index.htm'
+                    }
+                ]);
+
+                return;
             }
             res.reply('');
             return;

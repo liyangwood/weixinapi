@@ -142,6 +142,76 @@ var UNION_EVENT_BUTTON = {
     }
 };
 
+var YM_EVENT_BUTTON = {
+    ym_weather : {
+        name : 'Weather',
+        type : 'view',
+        url : 'http://www.weather.com/weather/tenday/l/Yosemite+National+Park+CANPYOSE:13:US'
+    },
+    ym_updates : {
+        name : 'Updates',
+        type : 'click',
+        key : 'ym_updates'
+    },
+    ym_webcam : {
+        name : 'Webcam',
+        type : 'view',
+        url : 'http://www.nps.gov/pwr/customcf/webcam/rd/dsp_webcam_image.cfm?&webCam=56868082F6D1C06F55CB388B8E18AE6B4380E77594A383B798BC1797B0138C06C5FEDC9998968850CD9B00048E90929ED514B34350&thumbnail=56868082F6D1C06F55CB388B8E18AE6B4380E77594A383B798BC1797B0138C06C5FEDC9998968850CD9B00048E90929ED514B34350&refreshRate=300&title=76939894ECBA807259'
+    },
+    ym_camping : {
+        name : 'Camping',
+        type : 'click',
+        key : 'ym_camping'
+    },
+    ym_food : {
+        name : 'Food&Lodging',
+        type : 'view',
+        url : 'http://www.google.cn/maps/place/%E5%8C%97%E4%BA%AC%E5%B8%82%E4%B8%9C%E5%9F%8E%E5%8C%BA%E5%A4%A9%E5%AE%89%E9%97%A8/@39.9087144,116.397389,15z/data=!3m1!4b1!4m2!3m1!1s0x35f052bf93bd9cb5:0x44df237ca3fb1951'
+    },
+
+    ym_direction : {
+        name : 'Direction',
+        type : 'view',
+        url : 'http://www.google.cn/maps/place/%E7%BE%8E%E5%9B%BD%E7%99%BD%E5%AE%AB/@38.8976763,-77.0365298,17z/data=!3m1!4b1!4m2!3m1!1s0x89b7b7bcdecbb1df:0x715969d86d0b76bf'
+    },
+    ym_status : {
+        name : 'Road status',
+        type : 'click',
+        key : 'ym_status'
+    },
+    ym_transportation : {
+        name : 'Transportation',
+        type : 'click',
+        key : 'ym_transportation'
+    },
+    ym_map : {
+        name : 'Park Map',
+        type : 'view',
+        url : 'http://www.google.cn/maps/place/%E7%BE%8E%E5%9B%BD%E7%99%BD%E5%AE%AB/@38.8976763,-77.0365298,17z/data=!3m1!4b1!4m2!3m1!1s0x89b7b7bcdecbb1df:0x715969d86d0b76bf'
+    },
+
+    ym_about : {
+        name : 'About',
+        type : 'click',
+        key : 'ym_about'
+    },
+    ym_hours : {
+        name : 'Hours',
+        type : 'click',
+        key : 'ym_hours'
+    },
+    ym_fees : {
+        name : 'Fees',
+        type : 'view',
+        url : host+'/ym/zhifu.html'
+    },
+    ym_get_app : {
+        name : 'Get App',
+        type : 'view',
+        url : 'https://appsto.re/cn/8ZhkO.i'
+    }
+};
+
 module.exports = {
     MENU_BUTTON : {
         "button":[
@@ -209,13 +279,48 @@ module.exports = {
         ]
     },
 
-    WEIXIN_CONFIG : {
-        host : host,
-        token: 'weixin',
-        appID: 'wxb25c77f56780bca1',
-        appsecret : '2ffb619d24b766126fce9dfa55f4b4e3',
-        encodingAESKey: ''
+    YM_MENU_BUTTON : {
+        button : [
+            {
+                name : 'Services',
+                sub_button : [
+                    YM_EVENT_BUTTON.ym_weather,
+                    YM_EVENT_BUTTON.ym_updates,
+                    YM_EVENT_BUTTON.ym_webcam,
+                    YM_EVENT_BUTTON.ym_camping,
+                    YM_EVENT_BUTTON.ym_food
+                ]
+            },
+            {
+                name : 'Get there',
+                sub_button : [
+                    YM_EVENT_BUTTON.ym_direction,
+                    YM_EVENT_BUTTON.ym_status,
+                    YM_EVENT_BUTTON.ym_transportation,
+                    YM_EVENT_BUTTON.ym_map
+                ]
+            },
+            {
+                name : 'More',
+                sub_button : [
+                    YM_EVENT_BUTTON.ym_about,
+                    YM_EVENT_BUTTON.ym_hours,
+                    YM_EVENT_BUTTON.ym_fees,
+                    YM_EVENT_BUTTON.ym_get_app
+                ]
+            }
+        ]
     },
+
+
+
+    //WEIXIN_CONFIG : {
+    //    host : host,
+    //    token: 'weixin',
+    //    appID: 'wxb25c77f56780bca1',
+    //    appsecret : '2ffb619d24b766126fce9dfa55f4b4e3',
+    //    encodingAESKey: ''
+    //},
 
     UNIONCITY_WEIXIN_CONFIG : {
         host : host,
@@ -225,8 +330,17 @@ module.exports = {
         encodingAESKey : ''
     },
 
+    YM_WEIXIN_CONFIG : {
+        host : host,
+        token: 'weixin',
+        appID: 'wxb25c77f56780bca1',
+        appsecret : '2ffb619d24b766126fce9dfa55f4b4e3',
+        encodingAESKey: ''
+    },
 
 
-    EVENT_BUTTON : EVENT_BUTTON,
-    UNION_EVENT_BUTTON : UNION_EVENT_BUTTON
+
+    //EVENT_BUTTON : EVENT_BUTTON,
+    UNION_EVENT_BUTTON : UNION_EVENT_BUTTON,
+    YM_EVENT_BUTTON : YM_EVENT_BUTTON
 };
