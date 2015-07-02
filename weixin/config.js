@@ -187,7 +187,7 @@ var YM_EVENT_BUTTON = {
     ym_map : {
         name : 'Park Map',
         type : 'view',
-        url : 'http://www.nps.gov/yose/index.htm#modal-park-map'
+        url : host+'/ym/parkmap.html'
     },
 
     ym_about : {

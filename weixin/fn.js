@@ -225,6 +225,7 @@ var F = {
     },
 
     doMessageForYM : function(msg, req, res){
+        var host = config.YM_WEIXIN_CONFIG.host;
         var type = msg.MsgType;
         if('event' === type){
             if('CLICK' === msg.Event){
@@ -245,7 +246,7 @@ var F = {
                     res.reply([
                         {
                             title : 'Campground Reservations',
-                            picurl : '',
+                            picurl : host+'/img/camping.jpg',
                             url : 'http://www.nps.gov/yose/planyourvisit/camping.htm'
                         }
                     ]);
