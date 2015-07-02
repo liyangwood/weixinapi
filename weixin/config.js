@@ -156,7 +156,7 @@ var YM_EVENT_BUTTON = {
     ym_webcam : {
         name : 'Webcam',
         type : 'view',
-        url : 'http://www.nps.gov/pwr/customcf/webcam/rd/dsp_webcam_image.cfm?&webCam=56868082F6D1C06F55CB388B8E18AE6B4380E77594A383B798BC1797B0138C06C5FEDC9998968850CD9B00048E90929ED514B34350&thumbnail=56868082F6D1C06F55CB388B8E18AE6B4380E77594A383B798BC1797B0138C06C5FEDC9998968850CD9B00048E90929ED514B34350&refreshRate=300&title=76939894ECBA807259'
+        url : host+'/ym/webcam.html'
     },
     ym_camping : {
         name : 'Camping',
@@ -181,13 +181,13 @@ var YM_EVENT_BUTTON = {
     },
     ym_transportation : {
         name : 'Transportation',
-        type : 'click',
-        key : 'ym_transportation'
+        type : 'view',
+        url : host+'/ym/transportation.html'
     },
     ym_map : {
         name : 'Park Map',
         type : 'view',
-        url : 'http://www.google.cn/maps/place/%E7%BE%8E%E5%9B%BD%E7%99%BD%E5%AE%AB/@38.8976763,-77.0365298,17z/data=!3m1!4b1!4m2!3m1!1s0x89b7b7bcdecbb1df:0x715969d86d0b76bf'
+        url : 'http://www.nps.gov/yose/index.htm#modal-park-map'
     },
 
     ym_about : {
