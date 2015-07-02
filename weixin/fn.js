@@ -246,7 +246,7 @@ var F = {
                     res.reply([
                         {
                             title : 'Campground Reservations',
-                            picurl : host+'/img/camping.jpg',
+                            picurl : host+'/img/camping.JPG',
                             url : 'http://www.nps.gov/yose/planyourvisit/camping.htm'
                         }
                     ]);
