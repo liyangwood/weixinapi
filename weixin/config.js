@@ -146,7 +146,7 @@ var YM_EVENT_BUTTON = {
     ym_weather : {
         name : 'Weather',
         type : 'view',
-        url : 'http://www.weather.com/weather/tenday/l/Yosemite+National+Park+CANPYOSE:13:US'
+        url : 'https://weather.yahoo.com/united-states/california/yosemite-national-park-91467160/'
     },
     ym_updates : {
         name : 'Updates',
