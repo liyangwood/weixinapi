@@ -85,6 +85,16 @@ app.use('/unioncityapi', wechat({
 
 }));
 
+//TANGER
+app.use('/tangerapi', wechat({
+    token : weixinConfig.TANGER_WEIXIN_CONFIG.token,
+    appid : weixinConfig.TANGER_WEIXIN_CONFIG.appID,
+    encodingAESKey : weixinConfig.TANGER_WEIXIN_CONFIG.encodingAESKey
+}, function(req, res, next){
+    var message = req.weixin;
+    weixinConfig.TANGER_FN.doMessage(message, req, res);
+}));
+
 app.use('/', routes);
 app.use('/wxapi', weixinapi);
 

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <!--<link href="/lib/ionic/css/ionic.min.css" rel="stylesheet">-->
+
+    <script src="/lib/ionic/js/ionic.bundle.min.js"></script>
+    <title></title>
+
+</head>
+<body>
+<h1 id="div"></h1>
+
+
+</body>
+</html>
+<script>
+    var android_url = 'https://play.google.com/store/apps/details?id=com.mvl.tanger&hl=en';
+    var ios_url = 'http://itunes.apple.com/us/app/id409552790?mt=8';
+
+    function goPath(url){
+        //url = 'http://mp.weixin.qq.com/mp/redirect?url='+encodeURIComponent(url);
+        window.setTimeout(function(){
+            document.getElementById('div').innerHTML = '<a href="'+url+'">'+url+'</a>';
+            location.href = url;
+        }, 100);
+    }
+
+
+    ionic.Platform.ready(function(){
+        if(ionic.Platform.isIOS()){
+            goPath(ios_url);
+        }
+        else{
+            goPath(android_url);
+        }
+    });
+
+
+</script>

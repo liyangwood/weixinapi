@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="Demo">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <link href="/lib/ionic/css/ionic.min.css" rel="stylesheet">
+
+    <script src="/lib/ionic/js/ionic.bundle.min.js"></script>
+    <script src="/lib/underscore.js"></script>
+
+    <script src="/js/core.js"></script>
+    <title></title>
+
+</head>
+<body ng-controller="oauth">
+<div class="bar bar-header bar-royal">
+    <h1 class="title">绑定微信账号</h1>
+</div>
+
+<div class="list card" style="margin-top: 60px;">
+
+    <div class="item item-avatar">
+        <img ng-src="{{weixin.img}}">
+        <h2>{{weixin.name}}</h2>
+    </div>
+</div>
+
+<div class="list" style="margin-top: 20px;">
+    <label class="item item-input">
+        <input type="text" placeholder="Email">
+    </label>
+
+</div>
+
+<button style="width: 92%; margin: 0 4%;" class="button button-royal">
+    绑定账号
+</button>
+<!--<div style="margin-top: 10px;">{{text}}</div>-->
+
+</body>
+</html>
+<script>
+
+
+KG.app.controller('oauth', function($scope, $http){
+    var code = KG.util.urlParam('code');
+
+    $http.get('/wxapi/oauth?MsgType=getUserByCode&type=tanger&code='+code).success(function(rs){
+        var json = rs;
+        $scope.weixin = {
+            name : json.nickname,
+            img : json.headimgurl
+        };
+    });
+});
+
+
+</script>

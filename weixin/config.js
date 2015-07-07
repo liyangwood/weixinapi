@@ -1,3 +1,6 @@
+
+var TANGER = require('./config/TANGER');
+
 var host = 'http://130.211.186.174';
 var EVENT_BUTTON = {
     szfw_zuixintongzhi : {
@@ -212,6 +215,8 @@ var YM_EVENT_BUTTON = {
     }
 };
 
+
+
 module.exports = {
     MENU_BUTTON : {
         "button":[
@@ -313,7 +318,6 @@ module.exports = {
     },
 
 
-
     //WEIXIN_CONFIG : {
     //    host : host,
     //    token: 'weixin',
@@ -342,5 +346,15 @@ module.exports = {
 
     //EVENT_BUTTON : EVENT_BUTTON,
     UNION_EVENT_BUTTON : UNION_EVENT_BUTTON,
-    YM_EVENT_BUTTON : YM_EVENT_BUTTON
+    YM_EVENT_BUTTON : YM_EVENT_BUTTON,
+
+    TANGER_MENU_BUTTON : TANGER.MENU_BUTTON,
+    TANGER_EVENT_BUTTON : TANGER.EVENT_BUTTON,
+    TANGER_WEIXIN_CONFIG : TANGER.WEIXIN_CONFIG,
+    TANGER_FN : TANGER.FN,
+
+
+
+
+    end : null
 };
