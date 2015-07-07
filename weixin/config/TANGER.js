@@ -1,7 +1,7 @@
 var WechatAPI = require('wechat-api');
 var OAuthAPI = require('wechat-oauth');
 
-var host = 'http://6d1add27.ngrok.io';
+var host = 'http://130.211.186.174';
 var button = {
     tg_outlet : {
         name : 'My Outlet',
