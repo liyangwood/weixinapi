@@ -10,17 +10,18 @@ var button = {
     },
     tg_event : {
         name : 'Events',
-        type : 'click',
-        key : 'tg_event',
-        clickFn : function(req, res, opts){
-            res.reply('未来实现');
-            //TODO
-        }
+        type : 'view',
+        url : 'http://www.js-css.cn/jscode/award/award14/'
+        //key : 'tg_event',
+        //clickFn : function(req, res, opts){
+        //    res.reply('未来实现');
+        //    //TODO
+        //}
     },
     tg_parking_pin : {
         name : 'Parking Pin',
         type : 'view',
-        url : host+'/tanger/map.html'
+        url : 'http://www.google.cn/maps/'
     },
     tg_services_locator : {
         name : 'Services Locator',
@@ -38,19 +39,20 @@ var button = {
         clickFn : function(req, res){
             var url = oauthApi.getAuthorizeURL(host+'/tanger/oauth.html', 'state', 'snsapi_userinfo');
 
-            res.reply('<a href="'+url+'">绑定账号</a>');
+            res.reply('<a href="'+url+'">Please link your Tanger Club Membership first.</a>');
         },
         url : host+'/tanger/oauth.html'
     },
 
     tg_sales : {
         name : 'Sales',
-        type : 'click',
-        key : 'tg_sales',
-        clickFn : function(req, res){
-            res.reply('未来实现');
-            //TODO
-        }
+        type : 'view',
+        url : host+'/tanger/sales.html'
+        //key : 'tg_sales',
+        //clickFn : function(req, res){
+        //    res.reply('未来实现');
+        //    //TODO
+        //}
     },
     tg_digital_coupon : {
         name : 'Digital Coupon',
@@ -64,7 +66,7 @@ var button = {
         clickFn : function(req, res){
             var url = oauthApi.getAuthorizeURL(host+'/tanger/oauth.html', 'state', 'snsapi_userinfo');
 
-            res.reply('<a href="'+url+'">绑定账号</a>');
+            res.reply('<a href="'+url+'">Please link your Tanger Club Membership first.</a>');
         },
         url : host+'/tanger/oauth.html'
     },
@@ -85,13 +87,14 @@ var button = {
     tg_sweepstakes : {
         name : 'Sweepstakes',
         type : 'view',
-        url : host+'/tanger/choujiang.html'
+        url : 'http://www.js-css.cn/jscode/award/award14/'
     },
 
     tg_personal_shopper : {
         name : 'Personal shopper',
         type : 'view',
-        url : 'http://www.tangeroutlet.com/personal-shopper'
+        //url : 'http://www.tangeroutlet.com/personal-shopper'
+        url : host+'/tanger/form.html'
     },
     tg_eGift_card : {
         name : 'eGift card',
@@ -100,7 +103,7 @@ var button = {
         clickFn : function(req, res){
             var url = oauthApi.getAuthorizeURL(host+'/tanger/oauth.html', 'state', 'snsapi_userinfo');
 
-            res.reply('<a href="'+url+'">绑定账号</a>');
+            res.reply('<a href="'+url+'">Please link your Tanger Club Membership first.</a>');
         }
     },
     tg_style_book : {
@@ -120,8 +123,12 @@ var button = {
     },
     tg_get_app : {
         name : 'Get App',
-        type : 'view',
-        url : host+'/tanger/getapp.html'
+        type : 'click',
+        //url : host+'/tanger/getapp.html'
+        key : 'tg_get_app',
+        clickFn : function(req, res){
+            res.reply('Get our APP on <a href="https://play.google.com/store/apps/details?id=com.mvl.tanger&hl=en">Google Play</a> or <a href="http://itunes.apple.com/us/app/id409552790?mt=8">App Store</a> to enjoy more fun features!');
+        }
     },
     tg_contact_us : {
         name : 'Contact us',
@@ -212,6 +219,14 @@ var api = global.TANGER_API,
 })();
 
 
+var Const = {
+    WELCOME_MESSAGE : [
+        'Thank you for following Tanger Outlet on WeChat! \n',
+        'You can find nearest outlet and offers, wechat exclusive deals, check your Tanger Club Rewards, buy eGift cards, instantly chat with our personal shopper and a lot more! \n',
+        'Get our APP on <a href="https://play.google.com/store/apps/details?id=com.mvl.tanger&hl=en">Google Play</a> or <a href="http://itunes.apple.com/us/app/id409552790?mt=8">App Store</a> to enjoy more fun features!'
+    ].join('')
+};
+
 
 var F = {
     doMessage : function(msg, req, res){
@@ -230,7 +245,7 @@ var F = {
             }
             else if('subscribe' === msg.Event){
                 //关注动作
-                res.reply('Thank you for follow Tanger Outlet on WeChat! You can find the nearest outlet and its offers, wechat exclusive deals, check your Tanger Club Rewards and offers, buy eGift cards for you and your friends, instantly chat with our personal shopper and a lot more! And you can also get our APP on Google Play or App Store \nhttps://play.google.com/store/apps/details?id=com.mvl.tanger&hl=en \nhttp://itunes.apple.com/us/app/id409552790?mt=8 ');
+                res.reply(Const.WELCOME_MESSAGE);
                 return;
             }
         }
