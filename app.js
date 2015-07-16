@@ -33,7 +33,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.use(express.query());
-app.use('/weixinapi', wechat({
+app.use('/fremontapi', wechat({
     token: weixinConfig.WEIXIN_CONFIG.token,
     appid: weixinConfig.WEIXIN_CONFIG.appID,
     encodingAESKey: weixinConfig.WEIXIN_CONFIG.encodingAESKey
