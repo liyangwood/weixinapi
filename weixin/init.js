@@ -2,7 +2,7 @@ var fs = require('fs');
 var WechatAPI = require('wechat-api');
 var config = require('./config');
 
-//var api = global.weixinApi;
+var api = global.weixinApi;
 var ymApi = global.ymApi;
 var unionCityApi = global.unionCityApi;
 
@@ -78,9 +78,9 @@ function initYMApi(){
 }
 
 
-//if(!api){
-//    init();
-//}
+if(!api){
+    init();
+}
 if(!unionCityApi){
     initUnionCityApi();
 }
@@ -88,6 +88,6 @@ if(!ymApi){
     initYMApi();
 }
 
-//exports.weixinApi = api;
+exports.weixinApi = api;
 exports.unionCityApi = unionCityApi;
 exports.ymApi = ymApi;

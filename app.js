@@ -33,22 +33,17 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.use(express.query());
-//app.use('/weixinapi', wechat({
-//    token: weixinConfig.WEIXIN_CONFIG.token,
-//    appid: weixinConfig.WEIXIN_CONFIG.appID,
-//    encodingAESKey: weixinConfig.WEIXIN_CONFIG.encodingAESKey
-//}, function (req, res, next) {
-//    if(req.query.echostr){
-//        res.send(req.query.echostr);
-//        return;
-//    }
-//
-//    // 微信输入信息都在req.weixin上
-//    var message = req.weixin;
-//    console.log(message);
-//    apiFn.doMessage(message, req, res);
-//
-//}));
+app.use('/weixinapi', wechat({
+    token: weixinConfig.WEIXIN_CONFIG.token,
+    appid: weixinConfig.WEIXIN_CONFIG.appID,
+    encodingAESKey: weixinConfig.WEIXIN_CONFIG.encodingAESKey
+}, function (req, res, next) {
+
+    // 微信输入信息都在req.weixin上
+    var message = req.weixin;
+    apiFn.doMessage(message, req, res);
+
+}));
 
 app.use('/ymapi', wechat({
     token: weixinConfig.YM_WEIXIN_CONFIG.token,

@@ -75,7 +75,7 @@ var EVENT_BUTTON = {
     zsyz_gethere : {
         name : 'Get here',
         type : 'view',
-        url : host+'/jsdemo'
+        url : 'http://www.google.cn/maps/'
     }
 };
 
@@ -318,13 +318,13 @@ module.exports = {
     },
 
 
-    //WEIXIN_CONFIG : {
-    //    host : host,
-    //    token: 'weixin',
-    //    appID: 'wxb25c77f56780bca1',
-    //    appsecret : '2ffb619d24b766126fce9dfa55f4b4e3',
-    //    encodingAESKey: ''
-    //},
+    WEIXIN_CONFIG : {
+        host : host,
+        token: 'weixin',
+        appID: 'wx7af3ea8ba53914fc',
+        appsecret : '400f27034d9f1e179b99d0151213c7ab',
+        encodingAESKey: ''
+    },
 
     UNIONCITY_WEIXIN_CONFIG : {
         host : host,
@@ -344,7 +344,7 @@ module.exports = {
 
 
 
-    //EVENT_BUTTON : EVENT_BUTTON,
+    EVENT_BUTTON : EVENT_BUTTON,
     UNION_EVENT_BUTTON : UNION_EVENT_BUTTON,
     YM_EVENT_BUTTON : YM_EVENT_BUTTON,
 
