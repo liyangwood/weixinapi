@@ -1343,8 +1343,8 @@
 .pt-step1{
 	-webkit-animation-duration: 0.8s;
 	animation-duration: 0.8s;
-	-webkit-animation-delay: 0s;
-	animation-delay: 0s;
+	-webkit-animation-delay: 0.2s;
+	animation-delay: 0.2s;
 }
 .pt-step2{
 	-webkit-animation-duration: 0.8s;

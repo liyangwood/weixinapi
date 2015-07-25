@@ -237,7 +237,7 @@
                     +'<div class="wrap">';
 
                 $.each(item.images, function(i, img){
-                    h += '<img class="pt-page-'+img.animate+' pt-step'+(img.step||1)+'" src="'+img.src+'" style="'+ F.getStyleString(img.style)+'" />';
+                    h += '<img class="hide pt-page-'+img.animate+' pt-step'+(img.step||1)+'" src="'+img.src+'" style="'+ F.getStyleString(img.style)+'" />';
                 });
 
 
@@ -357,7 +357,7 @@
             C.loadingDiv.addClass('hide');
             C.mainDiv.removeClass('hide');
 
-            C.mainDiv.find('[data-name="p11"]').removeClass('hide');
+            C.mainDiv.find('[data-name="p11"]').removeClass('hide').find('img').removeClass("hide");
         },
 
 
