@@ -21,82 +21,11 @@
 	<body>
 		<div class="loading" id="js_loading">
 			<h1>Loading...</h1>
+			<h1 class="js_res"></h1>
 		</div>
 
 		<div class="main hide" id="js_main">
-			<div class="page page-1-1 page-current">
-				<div class="wrap">
-					<img class="img_1 pt-page-moveFromTop" src="img/cover.png" />
-					<img class="img_2 pt-page-moveFromLeft" width="500" height="600" src="img/sampofurniture.png" />
-					<img class="img_3 pt-page-moveIconUp" src="img/icon_up.png" />
-				</div>
-			</div>
-			<div class="page page-2-1 hide">
-				<div class="wrap">
-					<img class="img_1 hide pt-page-moveFromBottom" src="img/wording.png" />
-					<img class="img_2 hide pt-page-moveCircle" src="img/circle.png" />
-					<img class="img_3 hide pt-page-moveFromLeft" src="img/people.png" />
-					<img class="img_4 hide pt-page-scaleUp" src="img/dot1.png" />
-					<img class="img_5 hide pt-page-scaleUp" src="img/check_develop.png" />
-					<img class="img_6 hide pt-page-moveIconUp" src="img/icon_up.png" />
-					<img class="img_7 hide pt-page-scaleUp" src="img/floating_develop.png" />
-				</div>
-			</div>
-			<div class="page page-2-2 hide">
-				<div class="wrap">
-					<img class="img_1 hide pt-page-flipInLeft" src="img/introduction.png" />
-					<img class="img_2 hide pt-page-flipInLeft" src="img/btn_develop.png" />
-					<img class="img_3 hide pt-page-flipInLeft" src="img/dot2.png" />
-					<img class="img_6 hide pt-page-moveIconUp" src="img/icon_up.png" />
-				</div>
-			</div>
-			<div class="page page-3-1 hide">
-				<div class="wrap">
-					<img class="img_1 hide pt-page-moveFromBottom" src="img/wording_design.png" />
-					<img class="img_2 hide pt-page-moveCircle" src="img/circle-design.png" />
-					<img class="img_3 pt-page-moveFromBottom hide" src="img/people_design.png" />
-					<img class="img_4 hide pt-page-scaleUp" src="img/dot1.png" />
-					<img class="img_5 hide pt-page-scaleUp" src="img/check_design.png" />
-					<img class="img_6 hide pt-page-moveIconUp" src="img/icon_up.png" />
-					<img class="img_7 hide pt-page-scaleUp" src="img/floating_design.png" />
-				</div>
-			</div>
-			<div class="page page-3-2 hide">
-				<div class="wrap">
-					<img class="img_1 hide pt-page-flipInLeft" src="img/introduction_design.png" />
-					<img class="img_2 hide pt-page-flipInLeft" src="img/btn_design.png" />
-					<img class="img_3 hide pt-page-flipInLeft" src="img/dot2.png" />
-					<img class="img_6 hide pt-page-moveIconUp" src="img/icon_up.png" />
-				</div>
-			</div>
-			
-			<div class="page page-4-1 hide">
-				<div class="wrap">
-					<img class="img_1 hide pt-page-moveFromBottom" src="img/wording_production.png" />
-					<img class="img_2 hide pt-page-moveCircle" src="img/circle-production.png" />
-					<img class="img_3 pt-page-moveFromRight hide" src="img/people_production.png" />
-					<img class="img_4 hide pt-page-scaleUp" src="img/dot1.png" />
-					<img class="img_5 hide pt-page-scaleUp" src="img/check_production.png" />
-					<img class="img_6 hide pt-page-moveIconUp" src="img/icon_up.png" />
-					<img class="img_7 hide pt-page-scaleUp" src="img/floating_production.png" />
-					<img class="img_8 hide pt-page-scaleUp" src="img/pic_shadow_production.png" />
-				</div>
-			</div>
-			
-			<div class="page page-4-2 hide">
-				<div class="wrap">
-					<img class="img_1 hide pt-page-flipInLeft" src="img/introduction_production.png" />
-					<img class="img_2 hide pt-page-flipInLeft" src="img/btn_production.png" />
-					<img class="img_3 hide pt-page-flipInLeft" src="img/dot2.png" />
-					<img class="img_6 hide pt-page-moveIconUp" src="img/icon_up.png" />
-				</div>
-			</div>
-			<div class="page page-5-1 hide">
-				<div class="wrap">
-					<img class="img_1 hide pt-page-rotateCubeBottomIn" src="img/pic_back.png" />
-					<img class="img_2 hide pt-page-rotateCubeTopIn" src="img/btn_join.png" />
-				</div>
-			</div>
+
 		</div>
 	</body>
 </html>
@@ -174,13 +103,13 @@ window.WECHATDATA = {
 						top : '28%',
 						'margin-left' : '-120px'
 					},
-					animate : 'moveCircle',
-					step : 2
+					animate : 'rotateCarouselTopIn',
+					step : 3
 				},
 				{
 					src : 'img/people.png',
 					animate : 'rotateCarouselRightIn',
-					step : 3,
+					step : 2,
 					style : {
 						height : 'auto',
 						width : '241px',
@@ -282,8 +211,8 @@ window.WECHATDATA = {
 				},
 				{
 					src : 'img/circle-design.png',
-					animate : 'moveCircle',
-					step : 2,
+					animate : 'rotateCarouselLeftIn',
+					step : 3,
 					style : {
 						height : 'auto',
 						width : '250px',
@@ -295,7 +224,7 @@ window.WECHATDATA = {
 				{
 					src : 'img/people_design.png',
 					animate : 'rotateCarouselBottomIn',
-					step : 3,
+					step : 2,
 					style : {
 						height : 'auto',
 						width : '172px',
@@ -357,13 +286,14 @@ window.WECHATDATA = {
 						width : '162px',
 						left : '50%',
 						top : '2%',
-						'z-index' : 2,
+						//'z-index' : 2,
 						'margin-left' : '-84px'
 					}
 				},
 				{
 					src : 'img/circle-production.png',
 					animate : 'moveCircle',
+					step : 2,
 					style : {
 						height : 'auto',
 						width : '230px',
@@ -374,12 +304,14 @@ window.WECHATDATA = {
 				},
 				{
 					src : 'img/people_production.png',
-					animate : 'rotateCarouselRightIn',
+					//animate : 'rotateCarouselRightIn',
+					animate : 'moveFromRight',
 					style : {
 						height : 'auto',
 						width : '161px',
 						left : '50%',
 						top : '28%',
+						'z-index' : 1,
 						'margin-left' : '-80px'
 					}
 				},
@@ -453,6 +385,7 @@ window.WECHATDATA = {
 
 	]
 };
+
 </script>
 
 <script src="lib/zepto.min.js"></script>

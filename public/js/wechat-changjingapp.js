@@ -10,7 +10,7 @@
         col : 0
     };
 
-    const towards = {
+    var towards = {
         up : 1,
         right : 2,
         down : 3,
@@ -232,7 +232,7 @@
             var h = '';
 
             $.each(config.page, function(index, item){
-                var ct = index<1?'page-current':'hide';
+                var ct = index<1?'page-current hide':'hide';
                 h += '<div class="page page-'+item.id+' '+ct+'" data-name="'+item.name+'" style="'+ F.getStyleString(item.style)+'">'
                     +'<div class="wrap">';
 
@@ -245,6 +245,7 @@
             });
 
             C.mainDiv.html(h);
+
         },
 
         checkPage : function(){
@@ -355,6 +356,8 @@
         initEnd : function(){
             C.loadingDiv.addClass('hide');
             C.mainDiv.removeClass('hide');
+
+            C.mainDiv.find('[data-name="p11"]').removeClass('hide');
         },
 
 
@@ -369,8 +372,14 @@
 
                 n++;
 
+                $('#js_loading').find('.js_res').html(n + ' / '+max);
+
                 if(n > max -1){
-                    F.init(config);
+                    $('#js_loading').find('.js_res').html('load complete');
+                    window.setTimeout(function(){
+                        F.init(config);
+                    }, 500);
+
                 }
             }
 
