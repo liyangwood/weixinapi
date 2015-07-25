@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="zh-cn" class="no-js">
+	<head>
+		<meta http-equiv="Content-Type">
+		<meta content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<title>测试微信场景Page</title>
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="format-detection" content="email=no">
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="css/wechat-changjing.css" />
+		<link rel="stylesheet" type="text/css" href="css/animations.css" />
+
+		<style>
+
+
+
+		</style>
+	</head>
+	<body>
+		<div class="loading" id="js_loading">
+			<h1>Loading...</h1>
+		</div>
+
+		<div class="main hide" id="js_main">
+			<div class="page page-1-1 page-current">
+				<div class="wrap">
+					<img class="img_1 pt-page-moveFromTop" src="img/cover.png" />
+					<img class="img_2 pt-page-moveFromLeft" width="500" height="600" src="img/sampofurniture.png" />
+					<img class="img_3 pt-page-moveIconUp" src="img/icon_up.png" />
+				</div>
+			</div>
+			<div class="page page-2-1 hide">
+				<div class="wrap">
+					<img class="img_1 hide pt-page-moveFromBottom" src="img/wording.png" />
+					<img class="img_2 hide pt-page-moveCircle" src="img/circle.png" />
+					<img class="img_3 hide pt-page-moveFromLeft" src="img/people.png" />
+					<img class="img_4 hide pt-page-scaleUp" src="img/dot1.png" />
+					<img class="img_5 hide pt-page-scaleUp" src="img/check_develop.png" />
+					<img class="img_6 hide pt-page-moveIconUp" src="img/icon_up.png" />
+					<img class="img_7 hide pt-page-scaleUp" src="img/floating_develop.png" />
+				</div>
+			</div>
+			<div class="page page-2-2 hide">
+				<div class="wrap">
+					<img class="img_1 hide pt-page-flipInLeft" src="img/introduction.png" />
+					<img class="img_2 hide pt-page-flipInLeft" src="img/btn_develop.png" />
+					<img class="img_3 hide pt-page-flipInLeft" src="img/dot2.png" />
+					<img class="img_6 hide pt-page-moveIconUp" src="img/icon_up.png" />
+				</div>
+			</div>
+			<div class="page page-3-1 hide">
+				<div class="wrap">
+					<img class="img_1 hide pt-page-moveFromBottom" src="img/wording_design.png" />
+					<img class="img_2 hide pt-page-moveCircle" src="img/circle-design.png" />
+					<img class="img_3 pt-page-moveFromBottom hide" src="img/people_design.png" />
+					<img class="img_4 hide pt-page-scaleUp" src="img/dot1.png" />
+					<img class="img_5 hide pt-page-scaleUp" src="img/check_design.png" />
+					<img class="img_6 hide pt-page-moveIconUp" src="img/icon_up.png" />
+					<img class="img_7 hide pt-page-scaleUp" src="img/floating_design.png" />
+				</div>
+			</div>
+			<div class="page page-3-2 hide">
+				<div class="wrap">
+					<img class="img_1 hide pt-page-flipInLeft" src="img/introduction_design.png" />
+					<img class="img_2 hide pt-page-flipInLeft" src="img/btn_design.png" />
+					<img class="img_3 hide pt-page-flipInLeft" src="img/dot2.png" />
+					<img class="img_6 hide pt-page-moveIconUp" src="img/icon_up.png" />
+				</div>
+			</div>
+			
+			<div class="page page-4-1 hide">
+				<div class="wrap">
+					<img class="img_1 hide pt-page-moveFromBottom" src="img/wording_production.png" />
+					<img class="img_2 hide pt-page-moveCircle" src="img/circle-production.png" />
+					<img class="img_3 pt-page-moveFromRight hide" src="img/people_production.png" />
+					<img class="img_4 hide pt-page-scaleUp" src="img/dot1.png" />
+					<img class="img_5 hide pt-page-scaleUp" src="img/check_production.png" />
+					<img class="img_6 hide pt-page-moveIconUp" src="img/icon_up.png" />
+					<img class="img_7 hide pt-page-scaleUp" src="img/floating_production.png" />
+					<img class="img_8 hide pt-page-scaleUp" src="img/pic_shadow_production.png" />
+				</div>
+			</div>
+			
+			<div class="page page-4-2 hide">
+				<div class="wrap">
+					<img class="img_1 hide pt-page-flipInLeft" src="img/introduction_production.png" />
+					<img class="img_2 hide pt-page-flipInLeft" src="img/btn_production.png" />
+					<img class="img_3 hide pt-page-flipInLeft" src="img/dot2.png" />
+					<img class="img_6 hide pt-page-moveIconUp" src="img/icon_up.png" />
+				</div>
+			</div>
+			<div class="page page-5-1 hide">
+				<div class="wrap">
+					<img class="img_1 hide pt-page-rotateCubeBottomIn" src="img/pic_back.png" />
+					<img class="img_2 hide pt-page-rotateCubeTopIn" src="img/btn_join.png" />
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+<script>
+window.WECHATDATA = {
+	page : [
+		{
+			id : '1-1',
+			name : 'p11',
+			style : {
+				background : '#083846'
+			},
+			images : [
+				{
+					src : 'img/cover.png',
+					style : {
+						height : 'auto',
+						width : '248px',
+						left : '50%',
+						top : '1%',
+						'margin-left' : '-124px'
+					},
+					step : 1,
+					animate : 'moveFromTop'
+				},
+				{
+					src : 'img/sampofurniture.png',
+					style : {
+						height : 'auto',
+						width : '185px',
+						left : '50%',
+						top : '62%',
+						'margin-left' : '-92px'
+					},
+					step : 2,
+					animate : 'rotateCarouselRightIn'
+				},
+				{
+					src : 'img/icon_up.png',
+					style : {
+						height : 'auto',
+						width : '25px',
+						left : '50%',
+						top : '93%',
+						'margin-left' : '-12px'
+					},
+					animate : 'moveIconUp'
+				}
+			]
+		},
+		{
+			id : '2-1',
+			name : 'p21',
+			style : {
+				background : '#9261BF'
+			},
+			images : [
+				{
+					src : 'img/wording.png',
+					style : {
+						height : 'auto',
+						width : '158px',
+						left : '50%',
+						top : '2%',
+						'margin-left' : '-79px'
+					},
+					animate : 'moveFromBottom'
+				},
+				{
+					src : 'img/circle.png',
+					style : {
+						height : 'auto',
+						width : '240px',
+						left : '50%',
+						top : '28%',
+						'margin-left' : '-120px'
+					},
+					animate : 'moveCircle',
+					step : 2
+				},
+				{
+					src : 'img/people.png',
+					animate : 'rotateCarouselRightIn',
+					step : 3,
+					style : {
+						height : 'auto',
+						width : '241px',
+						left : '50%',
+						top : '36%',
+						'margin-left' : '-120px'
+					}
+				},
+//				{
+//					src : 'img/dot1.png',
+//					animate : 'scaleUp',
+//					step : 5,
+//					style : {
+//						height : 'auto',
+//						width : '20px',
+//						left : '50%',
+//						top : '87%',
+//						'margin-left' : '-10px'
+//					}
+//				},
+//				{
+//					src : 'img/check_develop.png',
+//					animate : 'scaleUp',
+//					step : 1,
+//					style : {
+//						height : 'auto',
+//						width : '142px',
+//						left : '50%',
+//						top : '82%',
+//						'margin-left' : '-71px'
+//					}
+//				},
+				{
+					src : 'img/icon_up.png',
+					animate : 'moveIconUp',
+					step : 4,
+					style : {
+						height : 'auto',
+						width : '25px',
+						left : '50%',
+						top : '92%',
+						'margin-left' : '-12px'
+					}
+				},
+				{
+					src : 'img/floating_develop.png',
+					animate : 'scaleUp',
+					step : 4,
+					style : {
+						height : 'auto',
+						width : '248px',
+						left : '50%',
+						top : '8%',
+						'margin-left' : '-110px'
+					}
+				}
+			]
+		},
+//		{
+//			id : '2-2',
+//			name : 'p22',
+//			style : {
+//				background : '#9261BF'
+//			},
+//			images : [
+//				{
+//					//src : 'img/introduction.png',
+//					src : 'http://www.huawei.com/cn/ucmf/groups/public/documents/multimedia/hw_u_397331.jpg',
+//					animate : 'flipInLeft',
+//					step : 1,
+//					style : {
+//						height : 'auto',
+//						width : '293px',
+//						left : '50%',
+//						top : '5%',
+//						'margin-left' : '-146px'
+//					}
+//				}
+//			]
+//		}
+		{
+			id : '3-1',
+			name : 'p31',
+			style : {
+				background : '#f3533c'
+			},
+			images : [
+				{
+					src : 'img/wording_design.png',
+					animate : 'moveFromBottom',
+					style : {
+						height : 'auto',
+						width : '166px',
+						left : '50%',
+						top : '2%',
+						'margin-left' : '-86px',
+						'z-index' : 2
+					}
+				},
+				{
+					src : 'img/circle-design.png',
+					animate : 'moveCircle',
+					step : 2,
+					style : {
+						height : 'auto',
+						width : '250px',
+						left : '50%',
+						top : '30%',
+						'margin-left' : '-125px'
+					}
+				},
+				{
+					src : 'img/people_design.png',
+					animate : 'rotateCarouselBottomIn',
+					step : 3,
+					style : {
+						height : 'auto',
+						width : '172px',
+						left : '50%',
+						top : '28%',
+						'margin-left' : '-55px'
+					}
+				},
+//				{
+//					src : 'img/check_design.png',
+//					animate : 'scaleUp',
+//					step : 4,
+//					style : {
+//						height : 'auto',
+//						width : '142px',
+//						left : '50%',
+//						top : '82%',
+//						'margin-left' : '-71px'
+//					}
+//				},
+				{
+					src : 'img/icon_up.png',
+					animate : 'moveIconUp',
+					step : 4,
+					style : {
+						height : 'auto',
+						width : '25px',
+						left : '50%',
+						top : '92%',
+						'margin-left' : '-12px'
+					}
+				},
+				{
+					src : 'img/floating_design.png',
+					animate : 'scaleUp',
+					step : 4,
+					style : {
+						height : 'auto',
+						width : '248px',
+						left : '50%',
+						top : '43%',
+						'margin-left' : '-124px'
+					}
+				}
+			]
+		},
+		{
+			id : '4-1',
+			name : 'p41',
+			style : {
+				background : '#FFBF50'
+			},
+			images : [
+				{
+					src : 'img/wording_production.png',
+					animate : 'moveFromBottom',
+					style : {
+						height : 'auto',
+						width : '162px',
+						left : '50%',
+						top : '2%',
+						'z-index' : 2,
+						'margin-left' : '-84px'
+					}
+				},
+				{
+					src : 'img/circle-production.png',
+					animate : 'moveCircle',
+					style : {
+						height : 'auto',
+						width : '230px',
+						left : '50%',
+						top : '28%',
+						'margin-left' : '-115px'
+					}
+				},
+				{
+					src : 'img/people_production.png',
+					animate : 'rotateCarouselRightIn',
+					style : {
+						height : 'auto',
+						width : '161px',
+						left : '50%',
+						top : '28%',
+						'margin-left' : '-80px'
+					}
+				},
+				{
+					src : 'img/icon_up.png',
+					animate : 'moveIconUp',
+					step : 1,
+					style : {
+						height : 'auto',
+						width : '25px',
+						left : '50%',
+						top : '92%',
+						'margin-left' : '-12px'
+					}
+				},
+				{
+					src : 'img/floating_production.png',
+					animate : 'scaleUp',
+					style : {
+						height : 'auto',
+						width : '271px',
+						left : '50%',
+						top : '33%',
+						'margin-left' : '-135px'
+					}
+				},
+				{
+					src : 'img/pic_shadow_production.png',
+					animate : 'scaleUp',
+					style : {
+						height : 'auto',
+						width : '169px',
+						left : '50%',
+						top : '75%',
+						'margin-left' : '-84px'
+					}
+				}
+			]
+		},
+		{
+			id : '5-1',
+			name : 'p51',
+			style : {
+				background : '#083846'
+			},
+			images : [
+				{
+					src : 'img/pic_back.png',
+					animate : 'rotateCubeBottomIn',
+					style : {
+						height : 'auto',
+						width : '280px',
+						left : '50%',
+						top : '20%',
+						'margin-left' : '-140px'
+					}
+				},
+				{
+					src : 'img/btn_join.png',
+					animate : 'rotateCubeTopIn',
+					style : {
+						height : 'auto',
+						width : '260px',
+						left : '50%',
+						top : '67%',
+						'margin-left' : '-130px'
+					}
+				}
+			]
+		}
+
+	]
+};
+</script>
+
+<script src="lib/zepto.min.js"></script>
+<script src="lib/touch.js"></script>
+<script src="js/wechat-changjingapp.js"></script>

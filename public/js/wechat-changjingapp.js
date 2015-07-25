@@ -353,8 +353,8 @@
         },
 
         initEnd : function(){
-            C.loadingDiv.hide();
-            C.mainDiv.show();
+            C.loadingDiv.addClass('hide');
+            C.mainDiv.removeClass('hide');
         },
 
 
@@ -400,10 +400,7 @@
 
 
 
-    F.start();
-
-
-
+    F.start(window['WECHATDATA'] || {});
 
 
 
