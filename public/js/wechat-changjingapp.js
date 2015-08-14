@@ -207,7 +207,26 @@
                 });
             });
 
+            rs.imageList = F.unique(rs.imageList);
+
+
             return rs;
+        },
+
+        unique : function(a){
+
+            var hash = {},
+                len = a.length,
+                result = [];
+
+            for (var i = 0; i < len; i++){
+                if (!hash[a[i]]){
+                    hash[a[i]] = true;
+                    result.push(a[i]);
+                }
+            }
+            return result;
+
         },
 
         initVar : function(config){
