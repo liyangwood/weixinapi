@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="zh-cn" class="no-js">
+<head>
+    <meta http-equiv="Content-Type">
+    <meta content="text/html; charset=utf-8">
+    <meta charset="utf-8">
+    <title>Yosemite National Park</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <link rel="stylesheet" type="text/css" href="../css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="../css/wechat-changjing.css" />
+    <link rel="stylesheet" type="text/css" href="../css/animations.css" />
+
+    <style>
+
+
+    </style>
+</head>
+<body>
+<div class="loading" id="js_loading">
+    <h1>Yosemite National Park</h1>
+    <h1 class="js_res"></h1>
+</div>
+
+<div class="main hide" id="js_main">
+
+</div>
+</body>
+</html>
+<script>
+    var getImage = function(file){
+        return 'img_yosemite/'+file;
+    };
+
+    var ANI_ARR = ['moveFromRight', 'moveFromTop', 'moveFromBottom', 'moveFromLeft', 'rotateSidesIn',
+            'moveCircle', 'scaleUpCenter', 'scaleUpDown',
+            'flipInLeft', 'flipInRight', 'flipInTop', 'flipInBottom',
+            'rotateInNewspaper', 'rotateCubeLeftIn', 'rotateCubeRightIn', 'rotateCubeTopIn', 'rotateCubeBottomIn',
+            'rotateCarouselRightIn', 'rotateCarouselLeftIn', 'rotateCarouselTopIn', 'rotateCarouselBottomIn'
+    ];
+
+    var index = 0;
+    function getAnimate(){
+        var len = ANI_ARR.length;
+        return ANI_ARR[Math.floor(Math.random()*len)];
+
+//        var rs = ANI_ARR[index%len];
+//        index++;
+//        return rs;
+    }
+
+    var icon_up = {
+        src : getImage('icon_up.png'),
+        style : {
+            height : 'auto',
+            width : '25px',
+            left : '50%',
+            top : '93%',
+            'margin-left' : '-12px'
+        },
+        animate : 'moveIconUp'
+    };
+    window.WECHATDATA = {
+        page : [
+            {
+                id : '1-1',
+                name : 'p11',
+                style : {
+                    background : '#083846'
+                },
+                images : [
+                    {
+                        src : getImage('1.jpg'),
+                        style : {
+                            height : 'auto',
+                            width : '100%',
+                            left : '0',
+                            top : '25%'
+                        },
+                        step : 1,
+                        animate : getAnimate()
+                    },
+                    icon_up
+                ]
+            },
+            {
+                id : '2-1',
+                name : 'p21',
+                style : {
+                    background : '#083846'
+                },
+                images : [
+                    {
+                        src : getImage('2.png'),
+                        style : {
+                            height : 'auto',
+                            width : '100%',
+                            left : '0',
+                            top : '10%'
+                        },
+                        step : 1,
+                        animate : getAnimate()
+                    },
+                    icon_up
+                ]
+            },
+            {
+                id : '3-1',
+                name : 'p31',
+                style : {
+                    background : '#083846'
+                },
+                images : [
+                    {
+                        src : getImage('3.png'),
+                        style : {
+                            height : 'auto',
+                            width : '100%',
+                            left : '0',
+                            top : '5%'
+                        },
+                        step : 1,
+                        animate : getAnimate()
+                    },
+                    icon_up
+                ]
+            },
+            {
+                id : '4-1',
+                name : 'p41',
+                style : {
+                    background : '#083846'
+                },
+                images : [
+                    {
+                        src : getImage('4.png'),
+                        style : {
+                            height : 'auto',
+                            width : '100%',
+                            left : '0',
+                            top : '5%'
+                        },
+                        step : 1,
+                        animate : getAnimate()
+                    },
+                    icon_up
+                ]
+            },
+            {
+                id : '5-1',
+                name : 'p51',
+                style : {
+                    background : '#083846'
+                },
+                images : [
+                    {
+                        src : getImage('5.png'),
+                        style : {
+                            height : 'auto',
+                            width : '100%',
+                            left : '0',
+                            top : '10%'
+                        },
+                        step : 1,
+                        animate : getAnimate()
+                    },
+                    icon_up
+                ]
+            },
+            {
+                id : '6-1',
+                name : 'p61',
+                style : {
+                    background : '#083846'
+                },
+                images : [
+                    {
+                        src : getImage('6.png'),
+                        style : {
+                            height : 'auto',
+                            width : '100%',
+                            left : '0',
+                            top : '10%'
+                        },
+                        step : 1,
+                        animate : getAnimate()
+                    },
+                    icon_up
+                ]
+            },
+            {
+                id : '7-1',
+                name : 'p71',
+                style : {
+                    background : '#083846'
+                },
+                images : [
+                    {
+                        src : getImage('7.png'),
+                        style : {
+                            height : 'auto',
+                            width : '100%',
+                            left : '0',
+                            top : '10%'
+                        },
+                        step : 1,
+                        animate : getAnimate()
+                    },
+                    icon_up
+                ]
+            },
+            {
+                id : '8-1',
+                name : 'p81',
+                style : {
+                    background : '#083846'
+                },
+                images : [
+                    {
+                        src : getImage('8.png'),
+                        style : {
+                            height : 'auto',
+                            width : '100%',
+                            left : '0',
+                            top : '5%'
+                        },
+                        step : 1,
+                        animate : getAnimate()
+                    },
+                    icon_up
+                ]
+            },
+            {
+                id : '9-1',
+                name : 'p91',
+                style : {
+                    background : '#083846'
+                },
+                images : [
+                    {
+                        src : getImage('9.png'),
+                        style : {
+                            height : 'auto',
+                            width : '100%',
+                            left : '0',
+                            top : '10%'
+                        },
+                        step : 1,
+                        animate : getAnimate()
+                    },
+                    icon_up
+                ]
+            },
+            {
+                id : '10-1',
+                name : 'p101',
+                style : {
+                    background : '#083846'
+                },
+                images : [
+                    {
+                        src : getImage('10.png'),
+                        style : {
+                            height : 'auto',
+                            width : '100%',
+                            left : '0',
+                            top : '10%'
+                        },
+                        step : 1,
+                        animate : getAnimate()
+                    },
+                    icon_up
+                ]
+            },
+            {
+                id : '11-1',
+                name : 'p111',
+                style : {
+                    background : '#083846'
+                },
+                images : [
+                    {
+                        src : getImage('11.png'),
+                        style : {
+                            height : 'auto',
+                            width : '100%',
+                            left : '0',
+                            top : '5%'
+                        },
+                        step : 1,
+                        animate : getAnimate()
+                    },
+                    icon_up
+                ]
+            },
+            {
+                id : '12-1',
+                name : 'p121',
+                style : {
+                    background : '#083846'
+                },
+                images : [
+                    {
+                        src : getImage('12.png'),
+                        style : {
+                            height : 'auto',
+                            width : '100%',
+                            left : '0',
+                            top : '8%'
+                        },
+                        step : 1,
+                        animate : getAnimate()
+                    },
+                    icon_up
+                ]
+            },
+            {
+                id : '13-1',
+                name : 'p131',
+                style : {
+                    background : '#083846'
+                },
+                images : [
+                    {
+                        src : getImage('13.png'),
+                        style : {
+                            height : 'auto',
+                            width : '100%',
+                            left : '0',
+                            top : '6%'
+                        },
+                        step : 1,
+                        animate : getAnimate()
+                    },
+                    icon_up
+                ]
+            },
+            {
+                id : '14-1',
+                name : 'p141',
+                style : {
+                    background : '#083846'
+                },
+                images : [
+                    {
+                        src : getImage('14.png'),
+                        style : {
+                            height : 'auto',
+                            width : '100%',
+                            left : '0',
+                            top : '5%'
+                        },
+                        step : 1,
+                        animate : getAnimate()
+                    },
+                    icon_up
+                ]
+            },
+            {
+                id : '15-1',
+                name : 'p151',
+                style : {
+                    background : '#083846'
+                },
+                images : [
+                    {
+                        src : getImage('15.png'),
+                        style : {
+                            height : 'auto',
+                            width : '100%',
+                            left : '0',
+                            top : '12%'
+                        },
+                        step : 1,
+                        animate : getAnimate()
+                    },
+                    icon_up
+                ]
+            },
+            {
+                id : '16-1',
+                name : 'p161',
+                style : {
+                    background : '#083846'
+                },
+                images : [
+                    {
+                        src : getImage('16.png'),
+                        style : {
+                            height : 'auto',
+                            width : '100%',
+                            left : '0',
+                            top : '5%'
+                        },
+                        step : 1,
+                        animate : getAnimate()
+                    },
+                    icon_up
+                ]
+            },
+            {
+                id : '17-1',
+                name : 'p171',
+                style : {
+                    background : '#083846'
+                },
+                images : [
+                    {
+                        src : getImage('17.png'),
+                        style : {
+                            height : 'auto',
+                            width : '100%',
+                            left : '0',
+                            top : '15%'
+                        },
+                        step : 1,
+                        animate : getAnimate()
+                    },
+                    icon_up
+                ]
+            },
+            {
+                id : '18-1',
+                name : 'p181',
+                style : {
+                    background : '#083846'
+                },
+                images : [
+                    {
+                        src : getImage('18.png'),
+                        style : {
+                            height : 'auto',
+                            width : '100%',
+                            left : '0',
+                            top : '8%'
+                        },
+                        step : 1,
+                        animate : getAnimate()
+                    },
+                    icon_up
+                ]
+            },
+            {
+                id : '19-1',
+                name : 'p191',
+                style : {
+                    background : '#083846'
+                },
+                images : [
+                    {
+                        src : getImage('19.jpg'),
+                        style : {
+                            height : 'auto',
+                            width : '100%',
+                            left : '0',
+                            top : '5%'
+                        },
+                        step : 1,
+                        animate : getAnimate()
+                    },
+                    icon_up
+                ]
+            },
+            {
+                id : '20-1',
+                name : 'p201',
+                style : {
+                    background : '#083846'
+                },
+                images : [
+                    {
+                        src : getImage('20.png'),
+                        style : {
+                            height : 'auto',
+                            width : '100%',
+                            left : '0',
+                            top : '2%'
+                        },
+                        step : 1,
+                        animate : getAnimate()
+                    },
+                    icon_up
+                ]
+            },
+            {
+                id : '21-1',
+                name : 'p211',
+                style : {
+                    background : '#083846'
+                },
+                images : [
+                    {
+                        src : getImage('21.png'),
+                        style : {
+                            height : 'auto',
+                            width : '100%',
+                            left : '0',
+                            top : '6%'
+                        },
+                        step : 1,
+                        animate : getAnimate()
+                    },
+                    icon_up
+                ]
+            }
+
+
+        ]
+    };
+
+</script>
+
+<script src="../lib/zepto.min.js"></script>
+<script src="../lib/touch.js"></script>
+<script src="../js/wechat-changjingapp.js"></script>

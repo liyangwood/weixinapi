@@ -283,31 +283,31 @@
                 }
             });
 
-            $(document).swipeLeft(function(e){
-                if(isAnimating) return;
-                if(!F.checkPage()) return;
-
-                last.row = now.row;
-                last.col = now.col;
-                if(last.row > 1 && last.row < config.max && last.col === 1){
-                    now.row = last.row;
-                    now.col = 2;
-                    F.pageMove(towards.left);
-                }
-            });
-
-            $(document).swipeRight(function(e){
-                if(isAnimating) return;
-                if(!F.checkPage()) return;
-
-                last.row = now.row;
-                last.col = now.col;
-                if(last.row > 1 && last.row < config.max && last.col==2){
-                    now.row = last.row;
-                    now.col = 1;
-                    F.pageMove(towards.right);
-                }
-            });
+            //$(document).swipeLeft(function(e){
+            //    if(isAnimating) return;
+            //    if(!F.checkPage()) return;
+            //
+            //    last.row = now.row;
+            //    last.col = now.col;
+            //    if(last.row > 1 && last.row < config.max && last.col === 1){
+            //        now.row = last.row;
+            //        now.col = 2;
+            //        F.pageMove(towards.left);
+            //    }
+            //});
+            //
+            //$(document).swipeRight(function(e){
+            //    if(isAnimating) return;
+            //    if(!F.checkPage()) return;
+            //
+            //    last.row = now.row;
+            //    last.col = now.col;
+            //    if(last.row > 1 && last.row < config.max && last.col==2){
+            //        now.row = last.row;
+            //        now.col = 1;
+            //        F.pageMove(towards.right);
+            //    }
+            //});
         },
 
         pageMove : function(tw){
