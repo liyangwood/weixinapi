@@ -376,7 +376,7 @@
             C.loadingDiv.addClass('hide');
             C.mainDiv.removeClass('hide');
 
-            C.mainDiv.find('[data-name="p11"]').removeClass('hide').find('img').removeClass("hide");
+            C.mainDiv.find('.page-1-1').removeClass('hide').find('img').removeClass("hide");
         },
 
 
