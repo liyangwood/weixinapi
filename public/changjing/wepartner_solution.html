@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-cn" class="no-js">
+<head>
+    <meta http-equiv="Content-Type">
+    <meta content="text/html; charset=utf-8">
+    <meta charset="utf-8">
+    <title>WePartner Solution</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <link rel="stylesheet" type="text/css" href="../css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="../css/wechat-changjing.css" />
+    <link rel="stylesheet" type="text/css" href="../css/animations.css" />
+
+    <style>
+
+
+    </style>
+</head>
+<body>
+<div class="loading" id="js_loading">
+    <h1>Yosemite National Park</h1>
+    <h1 class="js_res"></h1>
+</div>
+
+<div class="main hide" id="js_main">
+
+</div>
+</body>
+</html>
+<script>
+    var getImage = function(file){
+        return 'wepartner_solution_img/'+file;
+    };
+
+    var ANI_ARR = ['moveFromRight', 'moveFromTop', 'moveFromBottom', 'moveFromLeft', 'rotateSidesIn',
+        'moveCircle', 'scaleUpCenter', 'scaleUpDown',
+        'flipInLeft', 'flipInRight', 'flipInTop', 'flipInBottom',
+        'rotateInNewspaper', 'rotateCubeLeftIn', 'rotateCubeRightIn', 'rotateCubeTopIn', 'rotateCubeBottomIn',
+        'rotateCarouselRightIn', 'rotateCarouselLeftIn', 'rotateCarouselTopIn', 'rotateCarouselBottomIn'
+    ];
+
+    function getAnimate(){
+        var len = ANI_ARR.length;
+        return ANI_ARR[Math.floor(Math.random()*len)];
+
+    }
+
+    var icon_up = {
+        src : 'img_yosemite/icon_up.png',
+        style : {
+            height : 'auto',
+            width : '25px',
+            left : '50%',
+            top : '93%',
+            'margin-left' : '-12px'
+        },
+        animate : 'moveIconUp'
+    };
+
+    var index = 1;
+    function getP(img, opts){
+        opts = opts || {};
+        var up_flag = opts.hideUpIcon || false;
+        var rs = {
+            id : index + '-1',
+            style : {
+                background : '#083846'
+            },
+            images : [
+                {
+                    src : getImage(img),
+                    style : {
+                        height : '100%',
+                        width : '100%',
+                        left : '0',
+                        top : '0'
+                    },
+                    step : 1,
+                    animate : getAnimate()
+                }
+            ]
+        };
+        index++;
+
+        if(!up_flag){
+            rs.images.push(icon_up);
+        }
+
+        return rs;
+    }
+
+    window.WECHATDATA = {
+        page : [
+            getP('01.jpg'),
+            getP('02.jpg'),
+            getP('03.jpg'),
+            getP('04.jpg'),
+            getP('05.jpg'),
+            getP('06.jpg', {
+                hideUpIcon : true
+            })
+        ]
+    };
+
+</script>
+
+<script src="../lib/zepto.min.js"></script>
+<script src="../lib/touch.js"></script>
+<script src="../js/wechat-changjingapp.js"></script>
