@@ -1,0 +1,57 @@
+body{
+    background: #f9f9f9;
+}
+
+.aa{
+    width: 100%;
+    background: linear-gradient(to bottom, #007aff, #11c1f3);
+    text-align: center;
+    padding: 30px 0;
+}
+.aa img{
+    height: 50px;
+}
+.aa h3{
+    font-size: 22px;
+    color: #fefefe;
+    margin: 40px 20px 10px;
+}
+
+.bb, .cc{
+    margin: 0 15px;
+    padding: 10px 0 40px;
+}
+.bb .form-group{
+    margin-bottom: 5px;
+}
+.bb .control-label{
+    width: 100%;
+    text-align: right;
+}
+.bb .col-xs-3{
+    position: relative;
+    top: 4px;
+    font-size: 16px;
+}
+.bb .col-xs-3 i{
+    color: #f00;
+    position: relative;
+    top: 4px;
+    margin-left: 5px;
+}
+.bb .btn{
+    margin: 30px 25px 30px;
+    height: 40px;
+    background: #007aff;
+    font-size: 16px;
+    display: block;
+    border-radius: 5px;
+}
+
+.cc h3{
+    margin-top: 20px;
+    font-size: 18px;
+    line-height: 24px;
+    color: #333;
+    text-align: center;
+}
