@@ -3,7 +3,36 @@
 <%include include/head %>
 
 <body>
-<h1>你好，世界！</h1>
+<link rel="stylesheet" href="/admin/index.css">
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navicon" href="/admin">
+                <img style="height: 50px;" src="http://www.haiwai.com/images/hw_logo1.png">
+            </a>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid c-box">
+
+    <div class="row">
+        <div class="c-left col-md-3">
+            <%include include/leftNav.ejs %>
+        </div>
+
+        <div class="c-right col-md-9">
+            <%include filePath %>
+        </div>
+    </div>
+
+
+</div>
+
+
+
+
 
 </body>
 

@@ -1,0 +1,10 @@
+body{
+    background: #eeeeee;
+}
+.c-box{
+    position: relative;
+    top: 55px;
+}
+#accordion .active{
+    background-color: #eeeeee;
+}
