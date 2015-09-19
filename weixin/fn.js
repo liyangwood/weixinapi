@@ -398,6 +398,77 @@ var F = {
     //}
 
 
+
+    massSendText : function(text, callback){
+        var api = unionCityApi;
+        //api.previewText('oizn9tpGAECZmyG0HtgEWQ9jahXQ', text, function(err, result){
+        //    console.log(arguments);
+        //
+        //    callback(err, result);
+        //});
+
+        api.massSendText(text, '', function(err, result){
+            console.log(arguments);
+
+            callback(err, result);
+        });
+    },
+
+    massSendNews : function(opts, callback){
+        var api = unionCityApi;
+
+        var imageUrl = '/Users/JackyLee/Desktop/weixinapi/public/img/circle-design.png';
+        //api.uploadThumb(imageUrl, function(err, rs){
+        //    console.log(err, rs);
+        //
+        //
+        //});
+        var news = {
+            "articles": [
+                {
+                    "thumb_media_id":"9jsIeyEDd1UuFDfzMyd6YkhFpfol7b4PwIuXSeWcNtdaJvVL34dHJ_fR6AYvLHwW",
+                    "author":"xxx",
+                    "title": '<a href="http://www.baidu.com">Happy Day</a>',
+                    "content_source_url":"www.wenxuecity.com",
+                    "content":"content",
+                    "digest":"digest",
+                    "show_cover_pic":"0"
+                },
+                {
+                    "thumb_media_id":"9jsIeyEDd1UuFDfzMyd6YkhFpfol7b4PwIuXSeWcNtdaJvVL34dHJ_fR6AYvLHwW",
+                    "author":"xxx",
+                    "title":"Happy Day11111111",
+                    "content_source_url":"www.wenxuecity.com",
+                    "content": '<a href="http://www.baidu.com">sdlfjsldfjsdf</a>',
+                    "digest":"sdhfksdlfjsldfjsldfjl",
+                    "show_cover_pic":"0"
+                }
+                //{
+                //    //"thumb_media_id":"qI6_Ze_6PtV7svjolgs-rN6stStuHIjs9_DidOHaj0Q-mwvBelOXCFZiq2OsIU-p",
+                //    "author":"xxx",
+                //    "title":"Happy Day",
+                //    "content_source_url":"www.qq.com",
+                //    "content":"content",
+                //    "digest":"digest",
+                //    "show_cover_pic":"0"
+                //}
+            ]
+        };
+
+        api.uploadNews(news, function(err, rs){
+            console.log(err, rs);
+
+            var media_id = rs.media_id;
+if(!media_id) return;
+            api.previewNews('oizn9tpGAECZmyG0HtgEWQ9jahXQ', media_id, function(err, result){
+                console.log(arguments);
+
+                callback(err, result);
+            });
+        });
+    },
+
+
     end : null
 };
 
