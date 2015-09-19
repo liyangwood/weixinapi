@@ -13,6 +13,7 @@ var wechat = require('wechat');
 
 var routes = require('./routes/index');
 var weixinapi = require('./routes/weixinapi');
+var adminApi = require('./routes/admin');
 
 
 
@@ -92,6 +93,7 @@ app.use('/tangerapi', wechat({
 
 app.use('/', routes);
 app.use('/wxapi', weixinapi);
+app.use('/admin', adminApi);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
