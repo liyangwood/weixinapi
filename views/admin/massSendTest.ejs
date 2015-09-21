@@ -1,1 +1,33 @@
-lsdjflsdfjslfjdsl
+
+
+
+<button type="button" class="js_btn1 btn btn-primary">群发测试--文本</button>
+<button type="button" class="js_btn2 btn btn-primary">群发测试--新闻</button>
+
+
+
+<div class="js_log" style="font-size: 16px;background: #000;color: #fffe91;margin-top: 50px;min-height: 100px;"></div>
+
+
+<script>
+    (function(){
+        $('.js_btn1').click(function(){
+            $.ajax({
+                url : '/wxapi/massSendText',
+                success : function(rs){
+                    $('.js_log').html(JSON.stringify(rs));
+                }
+            });
+        });
+        $('.js_btn2').click(function(){
+            $.ajax({
+                url : '/wxapi/massSendNews',
+                success : function(rs){
+                    $('.js_log').html(JSON.stringify(rs));
+                }
+            });
+        });
+
+    })();
+
+</script>

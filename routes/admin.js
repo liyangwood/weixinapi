@@ -22,7 +22,7 @@ var F = {
    renderPath : function(file, req, res){
        res.render('admin/index', {
            title : '微信公众号管理后台－－首页',
-           filePath : 'admin/'+file
+           filePath : file
        });
    }
 };

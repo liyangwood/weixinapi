@@ -81,9 +81,9 @@ router.get('/uploadNews', function(req, res, next){
 });
 
 router.get('/massSendText', function(req, res, next){
-    var text = '<a href="http://www.baidu.com">第一条新闻</a> \n\n'
-        +'<a href="http://www.wenxuecity.com">第二条新闻</a>\n\n'
-        +'<a href="http://www.haiwai.com">第三条新闻</a>';
+    var text = '<a href="http://www.wenxuecity.com/news/2015/09/21/4580049.html">令完成筹码是什么？曝手握中共海外间谍绝密名单(图)</a> \n\n'
+        +'<a href="http://www.wenxuecity.com/news/2015/09/21/4580011.html">西雅图加紧准备迎接习近平到访 将暂关9个街区(图)</a>\n\n'
+        +'<a href="http://www.wenxuecity.com/news/2015/09/21/4579964.html">30年过去了 美方翻出习近平首次访美的名片(组图)</a>';
     apiFn.massSendText(text, function(err, rs){
         if(err){
             res.json(err);
