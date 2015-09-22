@@ -152,8 +152,7 @@ var F = {
                     wenxuecityAPI.getNewsList({
                         channel : 'news',
                         max : 8,
-                        success : function(rs){
-                            var list = rs.list;
+                        success : function(list){
                             for(var i= 0,len=list.length; i<len; i++){
                                 var tmpData = {
                                     title : list[i].title,
@@ -167,6 +166,9 @@ var F = {
                             }
 
                             res.reply(rsData);
+                        },
+                        error : function(){
+                            res.reply('wrong');
                         }
                     });
 
@@ -178,8 +180,7 @@ var F = {
                     wenxuecityAPI.getNewsList({
                         channel : 'gossip',
                         max : 8,
-                        success : function(rs){
-                            var list = rs.list;
+                        success : function(list){
                             for(var i= 0,len=list.length; i<len; i++){
                                 var tmpData = {
                                     title : list[i].title,
@@ -193,6 +194,9 @@ var F = {
                             }
 
                             res.reply(rsData);
+                        },
+                        error : function(){
+                            res.reply('wrong');
                         }
                     });
 
@@ -204,8 +208,7 @@ var F = {
                     wenxuecityAPI.getNewsList({
                         channel : 'ent',
                         max : 8,
-                        success : function(rs){
-                            var list = rs.list;
+                        success : function(list){
                             for(var i= 0,len=list.length; i<len; i++){
                                 var tmpData = {
                                     title : list[i].title,
@@ -219,6 +222,9 @@ var F = {
                             }
 
                             res.reply(rsData);
+                        },
+                        error : function(){
+                            res.reply('wrong');
                         }
                     });
 
