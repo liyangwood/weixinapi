@@ -59,6 +59,10 @@ var F = {
         }
 
         return url;
+    },
+
+    getHotNewsFor48Hours : function(){
+        var url = '/service/api/?func=hot&act=index'
     }
 
 };
