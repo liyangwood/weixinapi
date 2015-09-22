@@ -192,7 +192,7 @@ var F = {
 
                                 rsData.push(tmpData);
                             }
-
+console.log(rsData);
                             res.reply(rsData);
                         },
                         error : function(){
