@@ -80,25 +80,25 @@ var EVENT_BUTTON = {
 };
 
 var UNION_EVENT_BUTTON = {
-    union_news : {
-        name : 'News',
+    wenxuecity_news : {
+        name : '最新新闻',
         type : 'click',
-        key : 'union_news'
+        key : 'wenxuecity_news'
     },
-    union_directory : {
-        name : 'Directory',
-        type : 'view',
-        url : 'http://www.ci.union-city.ca.us/departments'
+    wenxuecity_gossip : {
+        name : '最新生活',
+        type : 'click',
+        key : 'wenxuecity_gossip'
     },
-    union_faq : {
-        name : 'FAQ',
-        type : 'view',
-        url : 'http://www.ci.union-city.ca.us/how-do-i-'
+    wenxuecity_ent : {
+        name : '最新娱乐',
+        type : 'click',
+        key : 'wenxuecity_ent'
     },
     union_city_contact : {
         name : 'Contact',
-        type : 'click',
-        key : 'union_city_contact'
+        type : 'view',
+        url : 'http://www.wenxuecity.com'
     },
 
 
@@ -255,11 +255,11 @@ module.exports = {
     UNION_MENU_BUTTON : {
         button : [
             {
-                name : 'The City',
+                name : '新闻',
                 sub_button : [
-                    UNION_EVENT_BUTTON.union_news,
-                    UNION_EVENT_BUTTON.union_directory,
-                    UNION_EVENT_BUTTON.union_faq,
+                    UNION_EVENT_BUTTON.wenxuecity_news,
+                    UNION_EVENT_BUTTON.wenxuecity_gossip,
+                    UNION_EVENT_BUTTON.wenxuecity_ent,
                     UNION_EVENT_BUTTON.union_city_contact
                 ]
             },

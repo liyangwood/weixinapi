@@ -4,6 +4,8 @@ var config = require('./config');
 var api = global.ymApi;
 var unionCityApi = global.unionCityApi;
 
+var wenxuecityAPI = require('../wenxuecity/request_API');
+
 var F = {
 
 
@@ -144,21 +146,89 @@ var F = {
         if('event' === type){
             if('CLICK' === msg.Event){
                 var key = msg.EventKey;
-                if(key === 'union_news'){
-                    res.reply([
-                        {
-                            title: 'Union city news',
-                            //description: 'Fireworks are banned in Fremont',
-                            picurl: 'http://www.ci.union-city.ca.us/Home/ShowImage?id=772&t=635345471671870000',
-                            url: 'http://www.ci.union-city.ca.us/about-us/news'
+                if(key === 'wenxuecity_news'){
+
+                    var rsData = [];
+                    wenxuecityAPI.getNewsList({
+                        channel : 'news',
+                        max : 8,
+                        success : function(rs){
+                            var list = rs.list;
+                            for(var i= 0,len=list.length; i<len; i++){
+                                var tmpData = {
+                                    title : list[i].title,
+                                    url : list[i].url
+                                };
+                                if(list[i].images.length > 0){
+                                    tmpData.picurl = list[i].images[0];
+                                }
+
+                                rsData.push(tmpData);
+                            }
+
+                            res.reply(rsData);
                         }
-                    ]);
+                    });
+
                     return;
                 }
-                else if(key === 'union_city_contact'){
-                    res.reply('City Hall Address : City of Union City 34009 Alvarado-Niles Road Union City, California 94587\nMain Phone Number : Telephone (510) 471-3232 Fax (510) 475-7318\nHours : Monday through Thursdays, 8:00 A.M. to 6:00 P.M. Fridays: 8:00 A.M. to 5:00 P.M. City Hall is closed on alternate Fridays.');
+                else if(key === 'wenxuecity_gossip'){
+
+                    var rsData = [];
+                    wenxuecityAPI.getNewsList({
+                        channel : 'gossip',
+                        max : 8,
+                        success : function(rs){
+                            var list = rs.list;
+                            for(var i= 0,len=list.length; i<len; i++){
+                                var tmpData = {
+                                    title : list[i].title,
+                                    url : list[i].url
+                                };
+                                if(list[i].images.length > 0){
+                                    tmpData.picurl = list[i].images[0];
+                                }
+
+                                rsData.push(tmpData);
+                            }
+
+                            res.reply(rsData);
+                        }
+                    });
+
                     return;
                 }
+                else if(key === 'wenxuecity_ent'){
+
+                    var rsData = [];
+                    wenxuecityAPI.getNewsList({
+                        channel : 'ent',
+                        max : 8,
+                        success : function(rs){
+                            var list = rs.list;
+                            for(var i= 0,len=list.length; i<len; i++){
+                                var tmpData = {
+                                    title : list[i].title,
+                                    url : list[i].url
+                                };
+                                if(list[i].images.length > 0){
+                                    tmpData.picurl = list[i].images[0];
+                                }
+
+                                rsData.push(tmpData);
+                            }
+
+                            res.reply(rsData);
+                        }
+                    });
+
+                    return;
+                }
+
+
+
+
+
 
                 else if(key === 'union_biz_city_profile'){
                     res.reply([
