@@ -35,7 +35,7 @@ var F = {
                 var data = rs.list;
 
                 if(data.length > max){
-                    data = data.slice(0, 12);
+                    data = data.slice(0, max);
                 }
 
                 for(var i= 0, len=data.length; i<len; i++){
