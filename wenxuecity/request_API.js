@@ -50,7 +50,13 @@ var F = {
 
     getNewsListUrlByListData : function(channel, data){
         var d = data.dateline.substring(0, 10).replace(/\-/g, '/'),
-            url = 'http://www.wenxuecity.com/'+channel+'/'+d+'/'+data.postid+'.html';
+            url = 'http://www.wenxuecity.com/news/'+d+'/';
+        if(channel === 'news'){
+            url += data.postid+'.html';
+        }
+        else{
+            url += channel+'-'+data.postid+'.html';
+        }
 
         return url;
     }
