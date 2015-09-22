@@ -276,24 +276,34 @@ var F = {
         }
         else if('text' === type){
             var str = msg.Content.toLowerCase();
-            if(str === 'contact'){
-                res.reply('City Hall Address : City of Union City 34009 Alvarado-Niles Road Union City, California 94587\nMain Phone Number : Telephone (510) 471-3232 Fax (510) 475-7318\nHours : Monday through Thursdays, 8:00 A.M. to 6:00 P.M. Fridays: 8:00 A.M. to 5:00 P.M. City Hall is closed on alternate Fridays.');
-                return;
-            }
-            else if(str === 'demographics' || str === 'demo'){
-                res.reply([
-                    {
-                        title : 'City Snapshot',
-                        picurl : 'http://38.106.5.171/home/showimage?id=282',
-                        url : 'http://www.ci.union-city.ca.us/departments/economic-community-development/city-snapshot'
+
+            wenxuecityAPI.getGoogleSearchResult({
+                key : str,
+                max : 8,
+                success : function(rs){
+                    var data = rs.items;
+                    var rsData = [];
+                    for(var i= 0,len=data.length; i<len; i++){
+                        var tmpData = {};
+                        tmpData.title = data[i].title;
+                        tmpData.description = data[i].snippet;
+                        tmpData.url = data[i].link;
+
+                        try{
+                            var tmpImg = data[i].pagemap.cse_image[0]['src'];
+                            tmpData.picurl = tmpImg;
+                        }catch(e){
+                            //TODO
+                        }
+
+
+                        rsData.push(tmpData);
                     }
-                ]);
 
-                return;
-            }
+                    res.reply(rsData);
+                }
+            });
 
-
-            res.reply('Thanks for your message.');
             return;
         }
 

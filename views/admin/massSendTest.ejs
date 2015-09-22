@@ -5,6 +5,9 @@
 
 <button type="button" class="js_btn1 btn btn-primary">群发测试--文本</button>
 <button type="button" class="js_btn2 btn btn-primary">群发测试--新闻</button>
+<br/>
+<input class="js_s_input" type="text" placeholder="Goolge Search" />
+<button type="button" class="js_search btn btn-primary">测试Goolge搜索</button>
 
 
 
@@ -28,6 +31,18 @@
                     $('.js_log').html(JSON.stringify(rs));
                 }
             });
+        });
+
+        $('.js_search').click(function(){
+            var str = $('.js_s_input').val();
+            $.ajax({
+                url : '/admin/api/search?q='+str,
+                type : 'get',
+                dataType : 'json',
+                success : function(rs){
+                    $('.js_log').html(JSON.stringify(rs));
+                }
+            })
         });
 
     })();

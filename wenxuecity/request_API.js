@@ -2,7 +2,35 @@
 
 var request = require('request');
 
+var GoogleSearch = require('google-search');
+
+var googleSearch = null;
+
+
+
+
 var F = {
+
+    getGoogleSearchResult : function(opts){
+        if(!googleSearch){
+            googleSearch = new GoogleSearch({
+                key: 'AIzaSyCwspUYBOMSDEri_GE3UGMLCTgo52eqQb8',
+                cx: '011130059528697400467:tj9jxflx3wa'
+            });
+        }
+
+        //TODO 注意使用GoolgeSearch的时候需要修改npm下来的源码，否则会有问题
+
+        googleSearch.build({
+            q: opts.key,
+            fileType: "",
+            num: opts.max || 10
+            //siteSearch: "wenxuecity.com" // Restricts results to URLs from a specified site
+        }, function(error, response){
+            opts.success(response);
+            //console.log(error, '\n-----\n----\n', response);
+        });
+    },
 
     requestGet : function(opts){
         var host = 'http://api.wenxuecity.com';
