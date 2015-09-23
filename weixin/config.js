@@ -96,9 +96,9 @@ var UNION_EVENT_BUTTON = {
         key : 'wenxuecity_ent'
     },
     union_city_contact : {
-        name : 'Contact',
+        name : 'Mobile Site',
         type : 'view',
-        url : 'http://www.wenxuecity.com'
+        url : 'http://130.211.186.174/msite-wxc/news.html#/news'
     },
 
 
