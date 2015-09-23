@@ -9,6 +9,7 @@
 <input class="js_s_input" type="text" placeholder="Goolge Search" />
 <button type="button" class="js_search btn btn-primary">测试Goolge搜索</button>
 
+<button type="button" class="js_ub btn btn-primary">获得用户信息</button>
 
 
 <div class="js_log" style="font-size: 16px;background: #000;color: #fffe91;margin-top: 50px;min-height: 100px;"></div>
@@ -37,6 +38,18 @@
             var str = $('.js_s_input').val();
             $.ajax({
                 url : '/admin/api/search?q='+str,
+                type : 'get',
+                dataType : 'json',
+                success : function(rs){
+                    $('.js_log').html(JSON.stringify(rs));
+                }
+            })
+        });
+
+        $('.js_ub').click(function(){
+            //var str = $('.js_s_input').val();
+            $.ajax({
+                url : '/admin/api/get_user_info?uid=',
                 type : 'get',
                 dataType : 'json',
                 success : function(rs){

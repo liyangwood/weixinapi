@@ -554,6 +554,18 @@ if(!media_id) return;
         });
     },
 
+    getUserInfo : function(opts){
+        var uid = opts.uuid || 'oizn9tpGAECZmyG0HtgEWQ9jahXQ';
+
+        unionCityApi.getUser(uid, function(err, rs){
+            if(err){
+                return;
+            }
+            console.log(err, rs);
+            opts.success(rs);
+        });
+    },
+
 
     end : null
 };

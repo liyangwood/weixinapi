@@ -53,6 +53,16 @@ router.get('/api/search', function(req, res, next){
     });
 });
 
+router.get('/api/get_user_info', function(req, res, next){
+    var uid = req.query.uid;
+    apiFn.getUserInfo({
+        uuid : uid,
+        success : function(data){
+            res.json(data);
+        }
+    });
+});
+
 
 var F = {
    renderPath : function(file, req, res){

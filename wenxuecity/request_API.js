@@ -93,6 +93,8 @@ var F = {
         var url = '/service/api/?func=hot&act=index'
     }
 
+
+
 };
 
 
