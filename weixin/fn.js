@@ -299,7 +299,7 @@ var F = {
                         rsData.push(tmpData);
                     }
 
-                    res.reply(rsData);
+                    res.nowait(rsData);
                 }
             });
 

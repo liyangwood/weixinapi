@@ -20,6 +20,7 @@ var adminApi = require('./routes/admin');
 var wechatList = require('wechat').List;
 wechatList.add('union_start_session', [
     ['回复{a}查看我的性别', function (info, req, res) {
+        console.log(info, req, res);
         res.reply('我是个妹纸哟');
     }],
     ['回复{b}查看我的年龄', function (info, req, res) {
