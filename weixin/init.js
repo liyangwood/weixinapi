@@ -56,11 +56,14 @@ function init(){
 function initUnionCityApi(){
     unionCityApi = new WechatAPI(config.UNIONCITY_WEIXIN_CONFIG.appID, config.UNIONCITY_WEIXIN_CONFIG.appsecret);
 
-    unionCityApi.createMenu(config.UNION_MENU_BUTTON, function(err, rs){
-        if(err) throw err;
-
-        console.log('UNION MENU BUTTON is update.');
-    });
+    //unionCityApi.createMenu(config.UNION_MENU_BUTTON, function(err, rs){
+    //    if(err){
+    //        console.error(err);
+    //        return;
+    //    }
+    //
+    //    console.log('UNION MENU BUTTON is update.');
+    //});
 
     global.unionCityApi = unionCityApi;
 }
@@ -68,11 +71,11 @@ function initUnionCityApi(){
 function initYMApi(){
     ymApi = new WechatAPI(config.YM_WEIXIN_CONFIG.appID, config.YM_WEIXIN_CONFIG.appsecret);
 
-    //ymApi.createMenu(config.YM_MENU_BUTTON, function(err, rs){
-    //    if(err) throw err;
-    //
-    //    console.log('YM MENU BUTTON is update.');
-    //});
+    ymApi.createMenu(config.YM_MENU_BUTTON, function(err, rs){
+        if(err) throw err;
+
+        console.log('YM MENU BUTTON is update.');
+    });
 
     global.ymApi = ymApi;
 }

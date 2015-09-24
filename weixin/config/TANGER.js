@@ -208,11 +208,11 @@ var api = global.TANGER_API,
     api = new WechatAPI(config.appID, config.appsecret);
     oauthApi = new OAuthAPI(config.appID, config.appsecret);
 
-    api.createMenu(menu, function(err, rs){
-        if(err) throw err;
-
-        console.log('TANGER MENU BUTTON is update.');
-    });
+    //api.createMenu(menu, function(err, rs){
+    //    if(err) throw err;
+    //
+    //    console.log('TANGER MENU BUTTON is update.');
+    //});
 
     global.TANGER_API = api;
     global.TANGER_OAUTHAPI = oauthApi;

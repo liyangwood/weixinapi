@@ -266,11 +266,11 @@ module.exports = {
                 ]
             },
             {
-                name : 'Do Biz',
+                name : '会话',
                 sub_button : [
-                    UNION_EVENT_BUTTON.union_biz_city_profile,
-                    UNION_EVENT_BUTTON.union_biz_programs,
-                    UNION_EVENT_BUTTON.union_biz_contact
+                    UNION_EVENT_BUTTON.union_start_session
+                    //UNION_EVENT_BUTTON.union_biz_programs,
+                    //UNION_EVENT_BUTTON.union_biz_contact
                 ]
             },
             {
@@ -289,31 +289,30 @@ module.exports = {
     YM_MENU_BUTTON : {
         button : [
             {
-                name : 'Services',
+                name : '新闻',
                 sub_button : [
-                    YM_EVENT_BUTTON.ym_weather,
-                    YM_EVENT_BUTTON.ym_updates,
-                    YM_EVENT_BUTTON.ym_webcam,
-                    YM_EVENT_BUTTON.ym_camping,
-                    YM_EVENT_BUTTON.ym_food
+                    UNION_EVENT_BUTTON.wenxuecity_news,
+                    UNION_EVENT_BUTTON.wenxuecity_gossip,
+                    UNION_EVENT_BUTTON.wenxuecity_ent,
+                    UNION_EVENT_BUTTON.union_city_contact
                 ]
             },
             {
-                name : 'Get there',
+                name : '会话',
                 sub_button : [
-                    YM_EVENT_BUTTON.ym_direction,
-                    YM_EVENT_BUTTON.ym_status,
-                    YM_EVENT_BUTTON.ym_transportation,
-                    YM_EVENT_BUTTON.ym_map
+                    UNION_EVENT_BUTTON.union_start_session
+                    //UNION_EVENT_BUTTON.union_biz_programs,
+                    //UNION_EVENT_BUTTON.union_biz_contact
                 ]
             },
             {
                 name : 'More',
                 sub_button : [
-                    YM_EVENT_BUTTON.ym_about,
-                    YM_EVENT_BUTTON.ym_hours,
-                    YM_EVENT_BUTTON.ym_fees,
-                    YM_EVENT_BUTTON.ym_get_app
+                    UNION_EVENT_BUTTON.union_more_weather,
+                    UNION_EVENT_BUTTON.union_more_report,
+                    UNION_EVENT_BUTTON.union_more_parking,
+                    UNION_EVENT_BUTTON.union_more_explore,
+                    UNION_EVENT_BUTTON.union_more_activities
                 ]
             }
         ]

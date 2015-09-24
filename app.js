@@ -41,7 +41,12 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(session({secret: 'weixinapi', cookie: {maxAge: 60000}}));
+app.use(session({
+    secret: 'weixinapi',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: true }
+}));
 
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -72,7 +77,7 @@ app.use('/ymapi', wechat({
     // 微信输入信息都在req.weixin上
     var message = req.weixin;
     console.log(message);
-    apiFn.doMessageForYM(message, req, res);
+    apiFn.doMessageForUnionCity(message, req, res);
 
 }));
 
