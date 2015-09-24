@@ -5,6 +5,9 @@ var api = global.ymApi;
 var unionCityApi = global.unionCityApi;
 
 var wenxuecityAPI = require('../wenxuecity/request_API');
+var fs = require('fs');
+var uuid = require('node-uuid');
+var request = require('request');
 
 var F = {
 
@@ -503,25 +506,23 @@ var F = {
     massSendNews : function(opts, callback){
         var api = unionCityApi;
 
-        var imageUrl = '/Users/JackyLee/Desktop/weixinapi/public/img/circle-design.png';
-        //api.uploadThumb(imageUrl, function(err, rs){
-        //    console.log(err, rs);
-        //
-        //
-        //});
+        //var imageUrl = '/Users/JackyLee/Desktop/weixinapi/public/img/circle-design.png';
+
+
+
         var news = {
             "articles": [
                 {
-                    "thumb_media_id":"9jsIeyEDd1UuFDfzMyd6YkhFpfol7b4PwIuXSeWcNtdaJvVL34dHJ_fR6AYvLHwW",
+                    "thumb_media_id":"_G2qHrMAoZvLUr_dO7Pf4C7hRKS7PjGcWhlS46hGNeV4Ah34V1iIbfmSXQrWwiTB",
                     "author":"xxx",
                     "title": '<a href="http://www.baidu.com">Happy Day</a>',
                     "content_source_url":"www.wenxuecity.com",
-                    "content":"content",
+                    "content":'<div style="text-align: center;"><img alt="" border="0" style= "word-wrap: break-word;" src= "http://cdn.wenxuecity.com/data/news/201504/06/c8fd673c11ed87df3ef084074bee867b.jpg"><br> <br> 贾晓霞（左）拒绝回国助查，其21岁儿子贾约翰（右）有传一直被中国当局拘留。（互联网图片）</div> <br> 由于中共中央政治局前常委、中央政法委前书记周永康的现任妻子贾晓烨亲妹贾晓霞拒绝回国助查，其21岁儿子贾约翰(John Jia)自去年1月持加拿大护照回上海参加完一场婚礼后，便被禁止回加拿大，有传当局拘留贾约翰，是要逼使贾晓霞回国。<br> <br> 报道指，贾晓霞为周永康夫妇在加拿大的利益代理人，曾由主管海外业务的中石油副总裁薄启亮违规提拔出任中石油加拿大公司副总经理。当时贾晓霞手上掌握著中石油动辄上百亿美元的资产收购和合资项目，估计至少敛财数十亿美元。<br>',
                     "digest":"digest",
                     "show_cover_pic":"0"
                 },
                 {
-                    "thumb_media_id":"9jsIeyEDd1UuFDfzMyd6YkhFpfol7b4PwIuXSeWcNtdaJvVL34dHJ_fR6AYvLHwW",
+                    "thumb_media_id":"_G2qHrMAoZvLUr_dO7Pf4C7hRKS7PjGcWhlS46hGNeV4Ah34V1iIbfmSXQrWwiTB",
                     "author":"xxx",
                     "title":"Happy Day11111111",
                     "content_source_url":"www.wenxuecity.com",
@@ -554,6 +555,98 @@ if(!media_id) return;
         });
     },
 
+    uploadAndMassSendNews : function(arrData, success){
+
+        function each(d, callback){
+            var rs = {
+                title : d.title,
+                "thumb_media_id":"_G2qHrMAoZvLUr_dO7Pf4C7hRKS7PjGcWhlS46hGNeV4Ah34V1iIbfmSXQrWwiTB",
+                author : 'Haiwai.com',
+                content_source_url : d.url,
+                digest : 'come from wenxuecity.com',
+                show_cover_pic : 0
+            };
+
+            wenxuecityAPI.getNewsDetail({
+                id : d.postid,
+                channel : 'news',
+                success : function(contentData){
+
+                    rs.content = contentData.content;
+
+                    //callback(rs);
+
+                    //上传封面图片
+                    if(false && d.images && d.images[0]){
+                        F.uploadThumbByImageUrl(d.images[0], function(result){
+                            rs['thumb_media_id'] = result['thumb_media_id'];
+
+                            callback(rs);
+                        });
+                    }
+                    else{
+                        callback(rs);
+                    }
+
+
+
+
+                }
+            });
+
+
+
+        }
+
+        var n = 1,
+            len = arrData.length;
+        var rsData = [];
+        for(var i=0; i<len; i++){
+            (function(i){
+                each(arrData[i], function(tmpData){
+                    rsData[i] = tmpData;
+                    if(n >= len){
+                        //TODO
+
+                        console.log(rsData);
+
+                        unionCityApi.uploadNews({
+                            articles : rsData
+                        }, function(err, result){
+
+                            var media_id = result.media_id;
+                            unionCityApi.previewNews('oizn9tpGAECZmyG0HtgEWQ9jahXQ', media_id, function(err, rr){
+                                console.log(err, media_id);
+
+                                success(err, rr);
+                            });
+
+                            //unionCityApi.previewNews('oizn9ts1NBxr1371KAO6TSLINpmA', media_id, function(err, rr){
+                            //    console.log(rr);
+                            //
+                            //    //success(err, result);
+                            //});
+
+                            //unionCityApi.massSendNews(media_id, '', function(err, result){
+                            //    console.log(arguments);
+                            //
+                            //    success(err, result);
+                            //});
+
+
+                        });
+
+                    }
+                    else{
+                        n++;
+                    }
+                });
+            })(i);
+
+        }
+
+    },
+
     getUserInfo : function(opts){
         var uid = opts.uuid || 'oizn9tpGAECZmyG0HtgEWQ9jahXQ';
 
@@ -563,6 +656,26 @@ if(!media_id) return;
             }
             console.log(err, rs);
             opts.success(rs);
+        });
+    },
+
+    uploadThumbByImageUrl : function(url, success){
+        //var url = req.query.imageUrl || 'http://www.wenxuecity.com/images/wxc-logo.gif';
+        var fileName = 'tempImage/'+uuid.v4()+'.png';
+
+        request.head(url, function(err, res, body){
+            console.log('content-type:', res.headers['content-type']);
+            console.log('content-length:', res.headers['content-length']);
+
+            request(url).pipe(fs.createWriteStream(fileName)).on('close', function(){
+                console.log('success');
+
+                unionCityApi.uploadThumb(fileName, function(err, rs){
+                    console.log(err, rs);
+
+                    success(rs);
+                });
+            });
         });
     },
 

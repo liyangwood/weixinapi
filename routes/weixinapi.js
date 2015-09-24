@@ -113,21 +113,45 @@ router.get('/massSendText', function(req, res, next){
     });
 
 
-
-
 });
+
+
 
 router.get('/massSendNews', function(req, res, next){
-    apiFn.massSendNews({}, function(err, rs){
-        if(err){
-            res.json(err);
-            return;
+
+    wenxuecityAPI.getNewsList({
+        channel : 'news',
+        max : 8,
+        success : function(list){
+            var data = list;
+
+
+            apiFn.uploadAndMassSendNews(data, function(err, json){
+                if(err){
+                    res.json(err);
+                    return;
+                }
+                res.json(json);
+            });
         }
-
-        res.json(rs);
-
     });
+
+
+
+    //apiFn.massSendNews({}, function(err, rs){
+    //    if(err){
+    //        res.json(err);
+    //        return;
+    //    }
+    //
+    //    res.json(rs);
+    //
+    //});
 });
+
+var F = {
+
+};
 
 
 

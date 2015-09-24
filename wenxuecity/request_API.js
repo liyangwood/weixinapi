@@ -1,10 +1,9 @@
 
-
+var fs = require('fs');
 var request = require('request');
-
 var GoogleSearch = require('google-search');
-
 var googleSearch = null;
+var uuid = require('node-uuid');
 
 
 
@@ -79,18 +78,34 @@ var F = {
     getNewsListUrlByListData : function(channel, data){
         var d = data.dateline.substring(0, 10).replace(/\-/g, '/'),
             url = 'http://www.wenxuecity.com/news/'+d+'/';
-        if(channel === 'news'){
-            url += data.postid+'.html';
-        }
-        else{
-            url += channel+'-'+data.postid+'.html';
-        }
+        //if(channel === 'news'){
+        //    url += data.postid+'.html';
+        //}
+        //else{
+        //    url += channel+'-'+data.postid+'.html';
+        //}
+
+        url = 'http://130.211.186.174/msite-wxc/news.html#/news/detail/'+channel+'/'+data.postid;
 
         return url;
     },
 
     getHotNewsFor48Hours : function(){
         var url = '/service/api/?func=hot&act=index'
+    },
+
+
+    getNewsDetail : function(opts){
+        var url = '/service/api/?act=view&channel='+opts.channel+'&id='+opts.id;
+        F.requestGet({
+            url : url,
+            success : function(rs){
+                opts.success(rs);
+            },
+            error : function(err){
+                throw err;
+            }
+        });
     }
 
 
