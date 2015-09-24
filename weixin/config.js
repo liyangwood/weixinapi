@@ -102,11 +102,13 @@ var UNION_EVENT_BUTTON = {
     },
 
 
-    union_biz_city_profile : {
-        name : 'City Profile',
+    union_start_session : {
+        name : '开始会话',
         type : 'click',
-        key : 'union_biz_city_profile'
+        key : 'union_start_session'
     },
+
+
     union_biz_programs : {
         name : 'Programs',
         type : 'view',

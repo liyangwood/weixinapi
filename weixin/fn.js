@@ -239,16 +239,12 @@ var F = {
 
 
 
-                else if(key === 'union_biz_city_profile'){
-                    res.reply([
-                        {
-                            title : 'City Snapshot',
-                            picurl : 'http://38.106.5.171/home/showimage?id=282',
-                            url : 'http://www.ci.union-city.ca.us/departments/economic-community-development/city-snapshot'
-                        }
-                    ]);
+                else if(key === 'union_start_session'){
+                    res.wait('union_start_session');
                     return;
                 }
+
+
                 else if(key === 'union_biz_contact'){
                     res.reply('Gloria Ortega, Economic Development Manager 3900 Alvarado-Niles Road Union City , CA 94587 Phone: 510-675-5396 Fax: 510-475-7318 Email: economicdevelopment@unioncity.org');
 
