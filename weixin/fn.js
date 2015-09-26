@@ -573,7 +573,7 @@ if(!media_id) return;
                     //callback(rs);
 
                     //上传封面图片
-                    if(false && d.images && d.images[0]){
+                    if(d.images && d.images[0]){
                         F.uploadThumbByImageUrl(d.images[0], function(result){
                             rs['thumb_media_id'] = result['thumb_media_id'];
 
@@ -617,11 +617,11 @@ if(!media_id) return;
                                 success(err, rr);
                             });
 
-                            //unionCityApi.previewNews('oizn9ts1NBxr1371KAO6TSLINpmA', media_id, function(err, rr){
-                            //    console.log(rr);
-                            //
-                            //    //success(err, result);
-                            //});
+                            unionCityApi.previewNews('oizn9ts1NBxr1371KAO6TSLINpmA', media_id, function(err, rr){
+                                console.log(rr);
+
+                                //success(err, result);
+                            });
 
                             //unionCityApi.massSendNews(media_id, '', function(err, result){
                             //    console.log(arguments);
