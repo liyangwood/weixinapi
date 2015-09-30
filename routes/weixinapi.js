@@ -8,7 +8,9 @@ var request = require('request'),
 
 
 router.get('/js_ticket', function(req, res, next){
-    apiFn.getJsConfig({}, function(rs){
+    apiFn.getJsConfig({
+        url : req.query.url
+    }, function(rs){
         res.json(rs);
     });
 });
