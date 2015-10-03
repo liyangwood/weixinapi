@@ -9,4 +9,11 @@ router.get('/jsdemo', function(req, res, next){
     res.render('jsdemo', { title: 'JS DEMO' });
 });
 
+//func
+router.get('/func/publish', function(req, res, next){
+    res.render('func/publish', {
+
+    });
+});
+
 module.exports = router;
