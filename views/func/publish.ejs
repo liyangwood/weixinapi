@@ -13,6 +13,7 @@
     <script src="/bower_components/jquery/dist/jquery.js"></script>
     <script src="/bower_components/underscore/underscore-min.js"></script>
     <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 
     <script src="/func/publish.js"></script>
 
@@ -60,13 +61,16 @@
                     <div class="col-sm-8 col-sm-offset-2">
                         <textarea rows="2" class="form-control js_addText" placeholder="添加一段文字"></textarea>
                         <button type="button"
-                                style="float: right;margin-top: 5px;"
+                                style="margin-top: 5px;"
                                 class="btn btn-primary js_addBtn">添加</button>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-sm-8 col-sm-offset-2">
-                        <input type="file" value="添加图片" class="js_addImage" accept="image/*" />
+                        <input style="display: none;" type="file" value="添加图片" multiple="multiple" class="js_addImage" accept="image/*" />
+                        <button type="button"
+                                style="margin-top: 10px;"
+                                class="btn btn-primary js_addImageBtn">加入图片</button>
                     </div>
                 </div>
 
