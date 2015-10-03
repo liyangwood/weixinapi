@@ -111,7 +111,7 @@
                 dataType : 'json',
                 success : function(config){
                     wx.config({
-                        debug : true,
+                        debug : false,
                         appId : config.appId,
                         timestamp : config.timestamp,
                         nonceStr : config.nonceStr,
