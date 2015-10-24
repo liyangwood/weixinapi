@@ -81,15 +81,15 @@ function initYMApi(){
 }
 
 
-if(!api){
-    init();
-}
-if(!unionCityApi){
-    initUnionCityApi();
-}
-if(!ymApi){
-    initYMApi();
-}
+//if(!api){
+//    init();
+//}
+//if(!unionCityApi){
+//    initUnionCityApi();
+//}
+//if(!ymApi){
+//    initYMApi();
+//}
 
 exports.weixinApi = api;
 exports.unionCityApi = unionCityApi;

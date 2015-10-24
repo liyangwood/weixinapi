@@ -6,18 +6,12 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 
-require('./weixin/init');
-var weixinConfig = require('./weixin/config');
-var apiFn = require('./weixin/fn');
-
-var wechat = require('wechat');
 
 var routes = require('./routes/index');
 var weixinapi = require('./routes/weixinapi');
 var adminApi = require('./routes/admin');
 
-
-
+var weixinInit = require('./weixin/start');
 
 
 var app = express();
@@ -50,81 +44,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(express.query());
 
-var wechatList = require('wechat').List;
-wechatList.add('union_start_session', [
-    ['回复{a}查看我的性别', function (req, res) {
-        console.log(res.reply);
-        res.reply('我是个妹纸哟');
-    }],
-    ['回复{b}查看我的年龄', function (req, res) {
-        res.reply('我今年18岁');
-    }],
-    ['回复{c}查看我的性取向', '这样的事情怎么好意思告诉你啦- -']
-]);
 
-
-app.use('/fremontapi', wechat({
-    token: weixinConfig.WEIXIN_CONFIG.token,
-    appid: weixinConfig.WEIXIN_CONFIG.appID,
-    encodingAESKey: weixinConfig.WEIXIN_CONFIG.encodingAESKey
-}, function (req, res, next) {
-
-    // 微信输入信息都在req.weixin上
-    var message = req.weixin;
-    apiFn.doMessage(message, req, res);
-
-}));
-
-app.use('/ymapi', wechat({
-    token: weixinConfig.YM_WEIXIN_CONFIG.token,
-    appid: weixinConfig.YM_WEIXIN_CONFIG.appID,
-    encodingAESKey: weixinConfig.YM_WEIXIN_CONFIG.encodingAESKey
-}, function (req, res, next) {
-    //if(req.query.echostr){
-    //    res.send(req.query.echostr);
-    //    return;
-    //}
-
-    // 微信输入信息都在req.weixin上
-    var message = req.weixin;
-    console.log(message);
-    apiFn.doMessageForUnionCity(message, req, res);
-
-}));
-
-//union city
-app.use('/unioncityapi', wechat({
-    token: weixinConfig.UNIONCITY_WEIXIN_CONFIG.token,
-    appid: weixinConfig.UNIONCITY_WEIXIN_CONFIG.appID,
-    encodingAESKey: weixinConfig.UNIONCITY_WEIXIN_CONFIG.encodingAESKey
-}, function (req, res, next) {
-    //if(req.query.echostr){
-    //    res.send(req.query.echostr);
-    //    return;
-    //}
-
-    // 微信输入信息都在req.weixin上
-    var message = req.weixin;
-    console.log(message);
-    apiFn.doMessageForUnionCity(message, req, res);
-
-}));
-
-//TANGER
-app.use('/tangerapi', wechat({
-    token : weixinConfig.TANGER_WEIXIN_CONFIG.token,
-    appid : weixinConfig.TANGER_WEIXIN_CONFIG.appID,
-    encodingAESKey : weixinConfig.TANGER_WEIXIN_CONFIG.encodingAESKey
-}, function(req, res, next){
-    var message = req.weixin;
-    weixinConfig.TANGER_FN.doMessage(message, req, res);
-}));
 
 
 
 app.use('/', routes);
 app.use('/wxapi', weixinapi);
 app.use('/admin', adminApi);
+
+weixinInit.start(app);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
