@@ -1,8 +1,8 @@
-
+var allAPI = require('./init');
 
 var config = require('./config');
-var api = global.ymApi;
-var unionCityApi = global.unionCityApi;
+var api = allAPI.ymApi;
+var unionCityApi = null;
 
 var wenxuecityAPI = require('../wenxuecity/request_API');
 var fs = require('fs');
@@ -418,9 +418,8 @@ var F = {
 
     getJsConfig : function(opts, callback){
         opts = opts || {};
-        var apiObj = opts.type==='union city'?unionCityApi:api;
 
-        apiObj.getJsConfig({
+        api.getJsConfig({
             debug: false,
             jsApiList: [
                 'getNetworkType',
