@@ -143,6 +143,40 @@ router.get('/api/getSogouWeixinArticleList', function(req, res, next){
     });
 });
 
+router.get('/api/getWeixinArticleList', function(req, res, next){
+    //var url = 'http://mp.weixin.qq.com/mp/getmasssendmsg?__biz=MzA5MDI2Nzg2Mw==&uin=MjkxOTEzNjUxMw%3D%3D&key=b410d3164f5f798e4fe49f88076f7326fea8b7ac8f3e1d80ed0bd84567b3bd9a961114002ece10c9a747585ce72014f1&f=json&frommsgid=9999999999&count=1000';
+
+    var url = 'http://mp.weixin.qq.com/mp/getmasssendmsg?__biz=MzA5MDI2Nzg2Mw==&uin=MjkxOTEzNjUxMw%3D%3D&key=b410d3164f5f798e230295a1e7bb4b1a20ce5b5ab4365839b0755101a88841c44b2cae270dc552eaee053b965874f0d8&devicetype=webwx&version=70000001&lang=zh_CN&pass_ticket=fGSSbEbLbhV1HvXuiWEuiDtwutpzfxCdJu19ppSH1Yn%2BAax3ger0YHm2W1NqlVYK#wechat_webview_type=1'
+
+
+    var opts = {
+        url : url,
+        headers : {
+            //'Accept' : 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+            //'Accept-Encoding' : 'gzip, deflate, sdch',
+            //'Accept-Language' : 'zh-CN,zh;q=0.8,en;q=0.6,zh-TW;q=0.4',
+
+            'Cookie' : 'pgv_pvi=3654473728; pgv_si=s7760156672; sig_login=h017dfd4f60453192b14c1905f7fddf386f433124829bdf52f0e0f48156816195d610c85738214a2224; sd_userid=66021443632429787; sd_cookie_crttime=1443632429787; verifysession=h02UolLu-FEozhz1q2p4bureNBrwBS7CS0W12IE1Yh81pgs6YIKPdPegXSgtbWjM3p0mGfpT1qcJ8xULoMTEnNz8EqaHTvEsgHY; RK=4AsiTw29P4; pt_clientip=a4cb605ade91cc26; pt_serverip=fe10ac1690654289; ptui_loginuin=36890110; pt2gguin=o0036890110; uin=o0036890110; skey=@TcwL4KVLf; ptisp=os; ptcz=77d861a0a3aae4ee3fb724fb04df6461ffcd4e2dcf62800a4d79df46e44a8eaf; pgv_info=ssid=s7474215500; pgv_pvid=8826581437; ts_uid=7945041045; webwx_data_ticket=AQa/4jxxg0oSOjpqhn3eooZ/',
+            'Host' : 'mp.weixin.qq.com',
+            'Referer' : 'https://wx.qq.com',
+            //'Upgrade-Insecure-Requests' : 1,
+            'User-Agent' : 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.99 Safari/537.36'
+        }
+    };
+
+    request(opts, function(err, response, body){
+        //var json = JSON.parse(body);
+        console.log(body);
+
+
+        F.getList({
+            key : 'b410d3164f5f798e023f767d9523f02c6dd5f9c89e4afb9f5f8df200e4bda77ed4e0ff29b36b8c1dc7cd951860509f46'
+        });
+
+        //res.json(json.general_msg_list.list);
+    });
+});
+
 
 var F = {
    renderPath : function(file, req, res){
@@ -150,7 +184,33 @@ var F = {
            title : '微信公众号管理后台－－首页',
            filePath : file
        });
+   },
+
+   getList : function(opts){
+       var key = opts.key;
+
+       var url = 'http://mp.weixin.qq.com/mp/getmasssendmsg?__biz=MzA5MDI2Nzg2Mw==&uin=MjkxOTEzNjUxMw%3D%3D&key='+key+'&f=json&frommsgid=9999999999&count=1000';
+
+       request({
+           url : url,
+           headers : {
+               //'Accept' : 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+               //'Accept-Encoding' : 'gzip, deflate, sdch',
+               //'Accept-Language' : 'zh-CN,zh;q=0.8,en;q=0.6,zh-TW;q=0.4',
+
+               'Cookie' : '',
+               'Host' : 'mp.weixin.qq.com',
+               'Referer' : 'https://wx.qq.com',
+               //'Upgrade-Insecure-Requests' : 1,
+               'User-Agent' : 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.99 Safari/537.36'
+           }
+       }, function(err, response, body){
+            console.log(body);
+
+
+       });
    }
+
 };
 
 module.exports = router;
